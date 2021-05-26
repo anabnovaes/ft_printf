@@ -6,12 +6,15 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/05/23 10:25:36 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/05/23 10:41:17 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *format, ...)
 {
+	va_list	args;
+
+	va_start(args, format);
 }

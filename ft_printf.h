@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/05/21 11:21:25 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/05/23 10:36:52 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include <stdarg.h>
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 
 #endif
