@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:41:30 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:19:30 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/19 20:41:16 by AnaNovaes-M      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isdigit(int c)
 {
-	write(fd, &c, 1);
+	return (c >= '0' && c <= '9');
 }

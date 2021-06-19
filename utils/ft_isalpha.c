@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:41:30 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:19:42 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/19 20:41:08 by AnaNovaes-M      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isalpha(int c)
 {
-	write(fd, &c, 1);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

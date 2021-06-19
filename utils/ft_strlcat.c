@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:24:40 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:22:09 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/19 20:42:36 by AnaNovaes-M      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	va_list	args;
+	size_t	size_dest;
 	size_t	counter;
-	size_t	len;
+	size_t	size_org;
 
-	va_start(args, format);
-	len = 0;
 	counter = 0;
-	while (*format)
+	size_dest = ft_strlen(dst);
+	size_org = ft_strlen((char *)src);
+	if (size_dest >= dstsize)
+		return (dstsize + size_org);
+	while (counter + size_dest < dstsize - 1 && src[counter])
 	{
-		if (format[counter] == "%")
-		{
-			len += get_data_and_print(format[counter], args);
-		}
-		else
-			len += ft_putchar_fd(format[counter, 1]);
+		dst[size_dest + counter] = src[counter];
+		counter++;
 	}
-	va_end(args);
-	return (len);
+	dst[size_dest + counter] = '\0';
+	return (size_dest + size_org);
 }
