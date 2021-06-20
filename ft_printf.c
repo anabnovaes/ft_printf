@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 13:19:43 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:32:04 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,24 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-int	get_data_and_print(char *data, va_list args, int *response)
+void	get_data_and_print(char *data, va_list args, int *response)
 {
 	size_t		count;
 	t_params	*print_data;
 
-	count = 0;
+	count = 1;
 	start_struct(&print_data);
-	while (!ft_isdigit(data[count]) || data[count] != '0')
+	while (!ft_isdigit(data[count]) || data[count] == '0')
 		count += get_flags(data[count], args, &print_data);
 	while (ft_isdigit(data[count]))
-		return (0);
-}
-
-size_t	get_flags(char *data, va_list args, t_params *print_data)
-{
-	size_t	c_positions;
-
-	c_positions = 0;
-	while (!ft_isdigit(data[c_positions]) || data[c_positions] != '0')
+		count += get_width(data[count], &print_data);
+	if (data[count] == '.')
+		count += get_precision(data[count], &print_data);
+	if (ft_isalpha(data[count]) || data[count] == '%')
 	{
-		if (*data == '-')
-			print_data->flag_minus = true;
-		else if (*data == '0')
-			print_data->flag_zero = true;
-		else if (!print_data->width && *data == '*')
-			print_data->width = va_arg(args, size_t);
-		else
-			return (c_positions + 1);
-		c_positions++;
+		response[1] = print_value(data[count], &print_data, args);
 	}
-	return (c_positions);
+	response[0] = count;
 }
 
 void	start_struct(t_params *print_data)

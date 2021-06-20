@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+         #
+#    By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:54:26 by apaula-b          #+#    #+#              #
-#    Updated: 2021/06/19 20:38:53 by AnaNovaes-M      ###   ########.fr        #
+#    Updated: 2021/06/20 16:29:11 by apaula-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@ HEADER = ft_printf.h
 FLAGS = -Wall -Wextra -Werror
 
 FILES = ft_printf.c \
+		ft_get_flags.c \
 		./utils/*.c
+
 
 OBJ = $(FILES:.c=.o)
 
 #1st rule to execute
-all: $(NAME)  
+all: $(NAME)
 
 #rule name
 $(NAME): $(OBJ) $(HEADER)
@@ -35,10 +37,10 @@ $(OBJ): $(FILES)
 		$(CC) $(FLAGS) -c $(FILES)
 
 clean:
-		rm -rf *.o 
+		rm -rf *.o
 
 fclean: clean
-		rm -rf *.a 
+		rm -rf *.a
 
 re: fclean all
 
