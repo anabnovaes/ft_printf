@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
+/*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:41:30 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:20:45 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/20 13:23:49 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isprint(int c)
 {
-	write(fd, &c, 1);
+	return (c >= 32 && c <= 126);
 }

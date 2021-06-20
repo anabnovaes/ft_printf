@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
+/*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/21 17:45:57 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:41:45 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:19:30 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/20 13:23:44 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_isdigit(int c)
 {
-	size_t	count;
-
-	count = 0;
-	if (s == NULL)
-	{
-		return ;
-	}
-	while (s[count])
-	{
-		write(fd, &s[count], 1);
-		count++;
-	}
-	write(fd, "\n", 1);
+	return (c >= '0' && c <= '9');
 }

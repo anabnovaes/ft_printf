@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
+/*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:41:55 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:40:12 by AnaNovaes-M      ###   ########.fr       */
+/*   Updated: 2021/06/20 13:23:58 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
 static int	check_signal(char value)
 {
