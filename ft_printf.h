@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/06 17:27:54 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:17:41 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 int		ft_printf(const char *format, ...);
 
-size_t	get_flags_and_precision( char position, va_list args);
+int		*get_data_and_print(char *data, va_list args);
+
+void	ft_putchar_fd(char c, int fd);
 
 #endif
