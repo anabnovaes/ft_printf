@@ -6,13 +6,13 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 19:19:30 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 13:23:44 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:55:34 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int	ft_isdigit(int c)
+size_t	ft_isdigit(size_t c)
 {
 	return (c >= '0' && c <= '9');
 }

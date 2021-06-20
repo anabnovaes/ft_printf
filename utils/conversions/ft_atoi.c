@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:41:55 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 13:23:58 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:52:40 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_spaces(char character)
 		return (0);
 }
 
-int	ft_atoi(const char *str)
+size_t	ft_atoi(const char *str)
 {
 	size_t		counter;
 	size_t		sum;

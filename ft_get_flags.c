@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 18:33:03 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:51:08 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,22 @@ size_t	get_width(char *data, t_params *print_data)
 	return (counter_size);
 }
 
-size_t	get_precision(char *data, t_params *print_data)
+size_t	get_precision(char *data, t_params *print_data, va_list args)
 {
+	size_t	counter_size;
+	char	*width;
+
+	counter_size = 0;
+	width = NULL;
+	if (data[counter_size] == '*')
+			print_data->width = va_arg(args, size_t);
+	while (ft_isdigit(data[counter_size]))
+	{
+		width[counter_size] = data[counter_size];
+		counter_size++;
+	}
+	print_data->width = ft_atoi(width);
+	return (counter_size);
 }
 
 size_t	print_value()
