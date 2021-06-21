@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 18:55:43 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:35:10 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ size_t	ft_isdigit(size_t c);
 size_t	get_precision(char *data, t_params *print_data, va_list args);
 
 size_t	get_width(char *data, t_params *print_data);
+
+size_t	get_type_and_print(char *data, t_params *print_data, va_list args);
 
 void	ft_putchar_fd(char c, int fd);
 
