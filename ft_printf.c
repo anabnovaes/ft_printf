@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/21 19:46:57 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/22 09:22:52 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ size_t	get_type_and_print(char *data, t_params *print_data, va_list args)
 		size_print = print_percent(print_data, args);
 	if (*data == 'u')
 		size_print = print_unsigned(print_data, args);
+	return (size_print);
 }
 
 void	get_data_and_print(char *data, va_list args, int *response)
@@ -46,7 +47,7 @@ void	get_data_and_print(char *data, va_list args, int *response)
 
 	count = 0;
 	start_struct(&print_data);
-	while (!ft_isdigit(data[count]) || data[count] == '0')
+	while (ft_isflag(data[count]))
 		count += get_flags(data[count], args, &print_data);
 	while (ft_isdigit(data[count]))
 		count += get_width(data[count], &print_data);
