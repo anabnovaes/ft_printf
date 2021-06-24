@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/21 19:51:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:24:39 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/06/24 11:23:50 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/24 11:23:59 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-size_t	print_string(t_params print_data, va_list args)
+size_t	print_percent(t_params print_data, va_list args)
 {
 }

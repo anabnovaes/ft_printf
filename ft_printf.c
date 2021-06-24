@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/22 09:22:52 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/24 11:18:03 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ size_t	get_type_and_print(char *data, t_params *print_data, va_list args)
 		size_print = print_percent(print_data, args);
 	if (*data == 'u')
 		size_print = print_unsigned(print_data, args);
+	if (*data == 'p')
+		size_print = print_pointer(print_data, args);
 	return (size_print);
 }
 
@@ -55,7 +57,7 @@ void	get_data_and_print(char *data, va_list args, int *response)
 		count += get_precision(data[count], &print_data, args);
 	if (ft_isalpha(data[count]) || data[count] == '%')
 	{
-		response[1] = get_identifier_and_print(data[count], &print_data, args);
+		response[1] = get_type_and_print(data[count], &print_data, args);
 	}
 	response[0] = count + 1;
 }
@@ -87,4 +89,9 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (len);
+}
+
+int	main(void)
+{
+	ft_printf("oi %c \n", 'a');
 }
