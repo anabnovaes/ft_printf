@@ -6,13 +6,13 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/28 19:48:08 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:09:33 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	get_flags(const char *data, va_list args, t_params **print_data)
+size_t	get_flags(const char *data, va_list args, t_p **print_data)
 {
 	size_t	c_positions;
 
@@ -32,7 +32,7 @@ size_t	get_flags(const char *data, va_list args, t_params **print_data)
 	return (c_positions);
 }
 
-size_t	get_width(const char *data, t_params **print_data)
+size_t	get_width(const char *data, t_p **print_data)
 {
 	size_t	counter_size;
 	char	*width;
@@ -48,7 +48,7 @@ size_t	get_width(const char *data, t_params **print_data)
 	return (counter_size);
 }
 
-size_t	get_precision(const char *data, t_params **print_data, va_list args)
+size_t	get_precision(const char *data, t_p **print_data, va_list args)
 {
 	size_t	counter_size;
 	char	*width;
