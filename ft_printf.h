@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/28 22:05:32 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 18:50:22 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_params
 	bool	flag_zero;
 	size_t	width;
 	size_t	precision;
+	int		*size_printed;
 }		t_params;
 
 int		ft_printf(const char *format, ...);
@@ -45,11 +46,11 @@ size_t	get_width(const char *data, t_params **print_data);
 
 size_t	get_flags(const char *data, va_list args, t_params **print_data);
 
-int		get_type_and_print(const char *data, va_list args);
+int		get_type_and_print(const char *data, va_list args, t_params *print);
 
 void	ft_putchar_fd(char c, int fd);
 
-int		print_char(va_list args);
+void	print_char(va_list args, t_params *print_data);
 
 size_t	ft_atoi(const char *str);
 
