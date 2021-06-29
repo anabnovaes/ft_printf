@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:40:00 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:57:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_params
 	bool	flag_zero;
 	size_t	width;
 	size_t	precision;
-	int		*size_printed;
 }		t_p;
 
 typedef struct s_counters

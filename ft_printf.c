@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:40:33 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:48:47 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("oi %c teste", 'a');
+	ft_printf("oi %c teste|", 'a');
 }
