@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/28 20:00:56 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/28 22:08:35 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	start_struct(t_params **print_data)
 	print_data[0]->precision = 0;
 }
 
-size_t	get_type_and_print(const char *data, va_list args)
+int	get_type_and_print(const char *data, va_list args)
 {
-	size_t	size_print;
+	int	size_print;
 
 	size_print = 0;
 	//if (*data == 's')
@@ -43,9 +43,9 @@ size_t	get_type_and_print(const char *data, va_list args)
 	return (size_print);
 }
 
-void	get_data_and_print(const char *data, va_list args, int **response)
+int	get_data_and_print(const char *data, va_list args, int *response)
 {
-	size_t		count;
+	int			count;
 	t_params	*print_data;
 
 	count = 1;
@@ -58,28 +58,28 @@ void	get_data_and_print(const char *data, va_list args, int **response)
 		count += get_precision(data + count, &print_data, args);
 	if (ft_isalpha(data[count]) || data[count] == '%')
 	{
-		response[0][1] = get_type_and_print(data + count, args);
+		*response = get_type_and_print(data + count, args);
 	}
-	response[0][0] = count + 1;
+	return (count + 1);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	size_t	counter;
-	size_t	len;
+	int		counter;
+	int		len;
 	int		*response;
 
 	va_start(args, format);
 	len = 0;
 	counter = 0;
+	response = 0;
 	while (format[counter])
 	{
 		if (format[counter] == '%')
 		{
-			get_data_and_print(format + counter, args, &response);
-			counter += response[0];
-			len += response[1];
+			counter += get_data_and_print(format + counter, args,response);
+			len += *response;
 		}
 		else
 		{
@@ -94,5 +94,5 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("oi %c \n", 'a');
+	ft_printf("oi %c \n HELO", 'a');
 }
