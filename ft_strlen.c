@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: AnaNovaes-MBA <AnaNovaes-MBA@student.42    +#+  +:+       +#+        */
+/*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 20:24:15 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/19 20:40:40 by AnaNovaes-M      ###   ########.fr       */
+/*   Created: 2021/02/02 19:22:17 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:11:07 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+size_t	ft_strlen(char *s)
 {
-	void	*pointer;
+	size_t	size;
 
-	pointer = malloc(count * size);
-	if (!pointer)
-		return (NULL);
-	else
+	size = 0;
+	while (s[size])
 	{
-		ft_bzero(pointer, count * size);
-		return (pointer);
+		size++;
 	}
+	return (size);
 }

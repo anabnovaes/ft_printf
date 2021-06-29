@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 11:23:50 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:23:59 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 19:19:30 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:12:34 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-size_t	print_percent(t_params print_data, va_list args)
+size_t	ft_isdigit(size_t c)
 {
+	return (c >= '0' && c <= '9');
 }

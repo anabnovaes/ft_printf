@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 11:24:28 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:24:34 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 19:20:34 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:12:43 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-size_t	print_unsigned(t_params print_data, va_list args)
+int	ft_isascii(int c)
 {
+	return (c >= 0 && c <= 127);
 }

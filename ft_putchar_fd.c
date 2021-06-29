@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 11:23:29 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:23:42 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:10:58 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-size_t	print_hexa(t_params print_data, va_list args)
+void	ft_putchar_fd(char c, int fd)
 {
+	write(fd, &c, 1);
 }

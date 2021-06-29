@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:20:45 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 13:23:49 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 19:18:58 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:21:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_isprint(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	return (c >= 32 && c <= 126);
+	size_t	counter;
+	char	*final_value;
+
+	counter = 0;
+	final_value = (char *)s;
+	while (counter < n)
+	{
+		final_value[counter] = '\0';
+		counter++;
+	}
 }

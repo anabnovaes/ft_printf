@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:22:35 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/20 13:24:06 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 20:24:15 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/26 14:14:18 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_toupper(int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	void	*pointer;
+
+	pointer = malloc(count * size);
+	if (!pointer)
+		return (NULL);
+	else
+	{
+		ft_bzero(pointer, count * size);
+		return (pointer);
+	}
 }

@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
+/*   ft_isflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 11:24:02 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:24:10 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/06/22 09:22:58 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/06/28 19:49:17 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "ft_printf.h"
 
-size_t	print_pointer(t_params print_data, va_list args)
+size_t	ft_isflag(const char *str)
 {
+	return (*str == '-' || *str == '*' || *str == '0');
 }

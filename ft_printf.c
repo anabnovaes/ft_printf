@@ -6,30 +6,30 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/24 11:18:03 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/28 20:00:56 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	start_struct(t_params *print_data)
+void	start_struct(t_params **print_data)
 {
-	print_data->flag_minus = false;
-	print_data->flag_zero = false;
-	print_data->width = 0;
-	print_data->precision = 0;
+	print_data[0]->flag_minus = false;
+	print_data[0]->flag_zero = false;
+	print_data[0]->width = 0;
+	print_data[0]->precision = 0;
 }
 
-size_t	get_type_and_print(char *data, t_params *print_data, va_list args)
+size_t	get_type_and_print(const char *data, va_list args)
 {
 	size_t	size_print;
 
 	size_print = 0;
-	if (*data == 's')
-		size_print = print_string(print_data, args);
+	//if (*data == 's')
+	//	size_print = print_string(print_data, args);
 	if (*data == 'c')
-		size_print = print_char(print_data, args);
-	if (*data == 'd' || *data == 'i')
+		size_print = print_char(args);
+	/*if (*data == 'd' || *data == 'i')
 		size_print = print_int(print_data, args);
 	if (*data == 'x' || *data == 'X')
 		size_print = print_hexa(print_data, args);
@@ -39,27 +39,28 @@ size_t	get_type_and_print(char *data, t_params *print_data, va_list args)
 		size_print = print_unsigned(print_data, args);
 	if (*data == 'p')
 		size_print = print_pointer(print_data, args);
+	return (size_print); */
 	return (size_print);
 }
 
-void	get_data_and_print(char *data, va_list args, int *response)
+void	get_data_and_print(const char *data, va_list args, int **response)
 {
 	size_t		count;
 	t_params	*print_data;
 
-	count = 0;
+	count = 1;
 	start_struct(&print_data);
-	while (ft_isflag(data[count]))
-		count += get_flags(data[count], args, &print_data);
+	while (ft_isflag(data + count))
+		count += get_flags(data + count, args, &print_data);
 	while (ft_isdigit(data[count]))
-		count += get_width(data[count], &print_data);
+		count += get_width(data + count, &print_data);
 	if (data[count] == '.')
-		count += get_precision(data[count], &print_data, args);
+		count += get_precision(data + count, &print_data, args);
 	if (ft_isalpha(data[count]) || data[count] == '%')
 	{
-		response[1] = get_type_and_print(data[count], &print_data, args);
+		response[0][1] = get_type_and_print(data + count, args);
 	}
-	response[0] = count + 1;
+	response[0][0] = count + 1;
 }
 
 int	ft_printf(const char *format, ...)
@@ -67,7 +68,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	size_t	counter;
 	size_t	len;
-	int		response[2];
+	int		*response;
 
 	va_start(args, format);
 	len = 0;
@@ -76,7 +77,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[counter] == '%')
 		{
-			get_data_and_print(format + counter + 1, args, &response);
+			get_data_and_print(format + counter, args, &response);
 			counter += response[0];
 			len += response[1];
 		}
