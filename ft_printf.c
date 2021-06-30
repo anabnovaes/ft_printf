@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:48:47 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:32:22 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	get_data(const char *data, va_list args, t_c *c)
 	t_p	print_data;
 
 	start_struct(&print_data);
-	while (ft_isflag(data + c->counter))
+	while (ft_isflag(data[c->counter]))
 		c->counter += get_flags(data + c->counter, args, &print_data);
-	while (ft_isdigit(data[c->counter]))
+	while (ft_isdigit(data[c->counter + 1]))
 		c->counter += get_width(data + c->counter, &print_data);
 	if (data[c->counter] == '.')
 		c->counter += get_precision(data + c->counter, &print_data, args);
@@ -60,6 +60,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[counters.counter] == '%')
 		{
+			counters.counter++;
 			get_data(format, args, &counters);
 		}
 		else
@@ -75,5 +76,5 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("oi %c teste|", 'a');
+	ft_printf("oi %5c teste|", 'a');
 }

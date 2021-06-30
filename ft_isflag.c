@@ -6,13 +6,13 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 09:22:58 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/28 19:49:17 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:28:31 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_isflag(const char *str)
+size_t	ft_isflag(size_t str)
 {
-	return (*str == '-' || *str == '*' || *str == '0');
+	return (str == '-' || str == '*' || str == '0');
 }

@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 19:58:46 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:36:18 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:59:43 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	start_struct(t_p *print_data)
 	print_data->flag_zero = false;
 	print_data->width = 0;
 	print_data->precision = 0;
-	print_data->size_printed = 0;
 }
 
 void	start_counters(t_c *counters)
