@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 19:10:57 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 20:07:32 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ void	*ft_calloc(size_t count, size_t size);
 size_t	ft_isflag(size_t str);
 
 int		get_size_int(long int value);
+
+void	print_percent(t_p *print_data, t_c *count);
 
 #endif

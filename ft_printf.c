@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 19:26:58 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 20:08:57 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 	int	size_print;
 
 	size_print = 0;
-	//if (*data == 's')
-	//	size_print = print_string(print_data, args);
 	if (*data == 'c')
 		print_char(args, print, count);
+	if (*data == '%')
+		print_percent(print, count);
+	//if (*data == 's')
+	//	size_print = print_string(print_data, args);
 	/*if (*data == 'd' || *data == 'i')
 		print_int(print_data, args);
 	if (*data == 'x' || *data == 'X')
-		print_hexa(print_data, args);
-	if (*data == '%')
-		print_percent(print_data, args);
-	if (*data == 'u')
+		print_hexa(print_data, args); */
+	/*if (*data == 'u')
 		size_print = print_unsigned(print_data, args);
 	if (*data == 'p')
 		size_print = print_pointer(print_data, args);  */
@@ -76,6 +76,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("oi |%5c| teste \n\n", 'a');
-	printf("oi |%5c| teste \n\n", 'a');
+	ft_printf("oi |%05%| teste \n\n");
+	printf("oi |%05%| teste \n\n");
 }
