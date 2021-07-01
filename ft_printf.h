@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:57:09 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 19:10:57 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ size_t	ft_isdigit(size_t c);
 
 size_t	get_precision(const char *data, t_p *print_data, va_list args);
 
-size_t	get_width(const char *data, t_p *print_data);
+int		get_width(const char *data, t_p *print_data);
 
 size_t	get_flags(const char *data, va_list args, t_p *print_data);
 
@@ -65,6 +65,8 @@ void	ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t count, size_t size);
 
-size_t	ft_isflag(const char *str);
+size_t	ft_isflag(size_t str);
+
+int		get_size_int(long int value);
 
 #endif
