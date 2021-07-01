@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/29 20:40:14 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 19:11:28 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,14 @@ size_t	get_flags(const char *data, va_list args, t_p *print_data)
 	return (c_positions);
 }
 
-size_t	get_width(const char *data, t_p *print_data)
+int	get_width(const char *data, t_p *print_data)
 {
-	size_t	counter_size;
-	char	*width;
+	int		size_int;
 
-	counter_size = 0;
-	width = NULL;
-	while (ft_isdigit(data[counter_size]))
-	{
-		width[counter_size] = data[counter_size];
-		counter_size++;
-	}
-	print_data->width = ft_atoi(width);
-	return (counter_size);
+	size_int = 0;
+	print_data->width = ft_atoi(data);
+	size_int = get_size_int(print_data->width);
+	return (size_int);
 }
 
 size_t	get_precision(const char *data, t_p *print_data, va_list args)
