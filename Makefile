@@ -6,7 +6,7 @@
 #    By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:54:26 by apaula-b          #+#    #+#              #
-#    Updated: 2021/06/20 16:29:11 by apaula-b         ###   ########.fr        #
+#    Updated: 2021/07/01 19:46:55 by apaula-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ HEADER = ft_printf.h
 FLAGS = -Wall -Wextra -Werror
 
 FILES = ft_printf.c \
-		ft_get_flags.c \
-		./utils/*.c
+		ft_get_flags.c
 
 
 OBJ = $(FILES:.c=.o)
