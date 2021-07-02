@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 22:09:22 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:42:02 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,9 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (counters.length);
+}
+
+int main(void)
+{
+	ft_printf("%%");
 }

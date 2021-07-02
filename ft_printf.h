@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 20:07:32 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:30:44 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_putchar_fd(char c, int fd);
 
 void	print_char(va_list args, t_p *print_data, t_c *count);
 
-size_t	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 void	ft_bzero(void *s, size_t n);
 
