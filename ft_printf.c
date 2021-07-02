@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 20:08:57 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 22:09:22 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,12 @@
 
 void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 {
-	int	size_print;
-
-	size_print = 0;
 	if (*data == 'c')
 		print_char(args, print, count);
-	if (*data == '%')
+	else if (*data == '%')
 		print_percent(print, count);
-	//if (*data == 's')
-	//	size_print = print_string(print_data, args);
-	/*if (*data == 'd' || *data == 'i')
-		print_int(print_data, args);
-	if (*data == 'x' || *data == 'X')
-		print_hexa(print_data, args); */
-	/*if (*data == 'u')
-		size_print = print_unsigned(print_data, args);
-	if (*data == 'p')
-		size_print = print_pointer(print_data, args);  */
+	else
+		count->length += 1;
 }
 
 void	get_data(const char *data, va_list args, t_c *c)
@@ -47,6 +36,13 @@ void	get_data(const char *data, va_list args, t_c *c)
 		c->counter += get_precision(data + c->counter, &print_data, args);
 	if (ft_isalpha(data[c->counter]) || data[c->counter] == '%')
 		get_type(data + c->counter, args, &print_data, c);
+	else if (data[c->counter] == ' ' || !data[c->counter])
+		c->counter += 1;
+	else
+	{
+		c->counter += 1;
+		get_data(data, args, c);
+	}
 }
 
 int	ft_printf(const char *format, ...)
@@ -72,10 +68,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (counters.length);
-}
-
-int	main(void)
-{
-	ft_printf("oi |%05%| teste \n\n");
-	printf("oi |%05%| teste \n\n");
 }

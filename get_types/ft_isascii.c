@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:22:35 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/26 14:11:12 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 19:20:34 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/07/01 22:04:30 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_toupper(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return (c >= 0 && c <= 127);
 }

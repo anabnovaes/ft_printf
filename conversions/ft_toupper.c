@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:19:42 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/26 14:12:38 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/02/02 19:22:35 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/07/01 22:03:57 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-size_t	ft_isalpha(size_t c)
+int	ft_toupper(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

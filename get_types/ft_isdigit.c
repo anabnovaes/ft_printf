@@ -6,11 +6,11 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 19:19:30 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/26 14:12:34 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 22:04:35 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_isdigit(size_t c)
 {
