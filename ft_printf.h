@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/02 11:30:44 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/02 13:04:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ size_t	ft_isflag(size_t str);
 int		get_size_int(long int value);
 
 void	print_percent(t_p *print_data, t_c *count);
+
+void	print_int(va_list args, t_p *print_data, t_c *count);
 
 #endif
