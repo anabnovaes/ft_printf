@@ -6,7 +6,7 @@
 #    By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:54:26 by apaula-b          #+#    #+#              #
-#    Updated: 2021/07/01 22:03:16 by apaula-b         ###   ########.fr        #
+#    Updated: 2021/07/01 22:46:25 by apaula-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,31 +16,25 @@ CC= gcc
 
 HEADER = ft_printf.h
 
-TYPES = ./get_types/
-
-CONVERSIONS  = ./conversions/
-
+SOURCE = ./src/
 
 #flags to compile
 FLAGS = -Wall -Wextra -Werror
 
-FILES = ${TYPES}ft_isalnum.c \
-		${TYPES}ft_isalpha.c \
-		${TYPES}ft_isascii.c \
-		${TYPES}ft_isdigit.c \
-		${TYPES}ft_isflag.c \
-		${TYPES}ft_isalpha.c \
-		${CONVERSIONS}ft_atoi.c \
-		${CONVERSIONS}ft_itoa.c \
-		${CONVERSIONS}ft_toupper.c \
+FILES = ${SOURCE}ft_atoi.c \
+		${SOURCE}ft_calloc.c \
+		${SOURCE}ft_get_flags.c \
+		${SOURCE}ft_get_types.c \
+		${SOURCE}ft_itoa.c \
+		${SOURCE}ft_start_functions.c \
+		${SOURCE}ft_strlen.c \
+		${SOURCE}ft_toupper.c \
+		ft_print_char.c \
+		ft_print_percent.c \
 		ft_printf.c \
-		ft_get_flags.c \
-
-
+		ft_putchar_fd.c
 
 OBJ = $(FILES:.c=.o)
-
-
 
 #1st rule to execute
 all: $(NAME)

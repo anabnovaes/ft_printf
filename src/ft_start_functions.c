@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_start_functions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 20:24:15 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/26 14:14:18 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/06/29 19:58:46 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/07/01 22:41:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	start_struct(t_p *print_data)
 {
-	void	*pointer;
+	print_data->flag_minus = false;
+	print_data->flag_zero = false;
+	print_data->width = 0;
+	print_data->precision = 0;
+}
 
-	pointer = malloc(count * size);
-	if (!pointer)
-		return (NULL);
-	else
-	{
-		ft_bzero(pointer, count * size);
-		return (pointer);
-	}
+void	start_counters(t_c *counters)
+{
+	counters->counter = 0;
+	counters->length = 0;
 }

@@ -6,11 +6,11 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 19:11:28 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/01 22:42:13 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 size_t	get_flags(const char *data, va_list args, t_p *print_data)
 {
@@ -54,11 +54,7 @@ size_t	get_precision(const char *data, t_p *print_data, va_list args)
 		print_data->width = va_arg(args, size_t);
 		return (1);
 	}
-	while (ft_isdigit(data[counter_size]))
-	{
-		width[counter_size] = data[counter_size];
-		counter_size++;
-	}
-	print_data->width = ft_atoi(width);
+	print_data->width = ft_atoi(data);
+	counter_size = get_size_int(print_data->width);
 	return (counter_size);
 }

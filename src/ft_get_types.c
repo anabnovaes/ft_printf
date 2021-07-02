@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_get_types.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:22:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/06/26 14:11:07 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/07/01 22:31:23 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/07/01 22:40:18 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_isalpha(size_t c)
 {
-	size_t	size;
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
 
-	size = 0;
-	while (s[size])
-	{
-		size++;
-	}
-	return (size);
+size_t	ft_isdigit(size_t c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+size_t	ft_isflag(size_t str)
+{
+	return (str == '-' || str == '*' || str == '0');
 }
