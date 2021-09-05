@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 20:09:31 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 19:32:47 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	print_percent(t_p *print_data, t_c *count)
 	else
 	{
 		write(1, "%", 1);
-		count->counter += 1;
+		count->length += 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/02 13:41:25 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 19:42:18 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 		print_char(args, print, count);
 	else if (*data == '%')
 		print_percent(print, count);
-	//else if (*data == 'd' || *data == 'i')
-	//	print_int(args, print, count);
+	else if (*data == 's')
+		print_string(args, print, count);
+	else if (*data == 'd' || *data == 'i')
+		print_int(args, print, count);
 	else
 		count->counter += 1;
 }
@@ -70,9 +72,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (counters.length);
 }
-
-/* int main(void)
-{
-	ft_printf("%c%c%c", 'a', 'b', 'c');
-}
-*/
