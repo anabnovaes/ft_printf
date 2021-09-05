@@ -6,20 +6,31 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/02 13:42:25 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 14:47:21 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	print_with_minus(t_p *print_data, t_c *count, char converted)
+static void	print_with_zero(t_p *print_data, t_c *count, char converted)
 {
-	int	size_print;
+    int size_print;
+    int counter;
 
-	size_print = ft_strlen(converted);
-	if (print_data->width)
+    counter = 0;
+    size_print = ft_strlen(converted);
+	if (print_data->width > size_print)
 	{
+		while (print_data->width - size_print > counter)
+        {
+            write(1, "0", 1);
+            counter++;
+        }
+         ft_putstr_fd(1,converted, size_print);
 	}
+	else
+        ft_putstr_fd(1,converted, size_print);
+     count->length += counter + size_print;
 }
 
 void	print_int(va_list args, t_p *print_data, t_c *count)
