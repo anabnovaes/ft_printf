@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/05 14:47:21 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 14:48:53 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_int(va_list args, t_p *print_data, t_c *count)
 	if (print_data->flag_minus)
 		print_with_minus(print_data, count, converted);
 	else if (print_data->flag_zero)
-		print_with_zero(print_data, count);
+		print_with_zero(print_data, count, converted);
 	else if (print_data->width)
 		print_with_width(print_data, count);
 	else if (print_data->precision)
