@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/05 20:40:22 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:54:07 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void	print_with_minus(t_p *print_data, t_c *count, char *converted)
 		}
 	}
 	else if (print_data->width < size_print)
-		ft_putchar_sized(converted, 1, print_data->width);
+		ft_putchar_sized(converted, 1, print_data->width, count);
 	else
-		ft_putstr_fd(converted, 1);
+		ft_putstr_fd(converted, 1, count);
 	count->length += counter + size_print;
 }
 
@@ -49,13 +49,12 @@ static void	print_with_zero(t_p *print_data, t_c *count, char *converted)
 			write(1, "0", 1);
 			counter++;
 		}
-		ft_putstr_fd(converted, 1);
+		ft_putstr_fd(converted, 1, count);
 	}
 	else if (print_data->width < size_print)
-		ft_putchar_sized(converted, 1, print_data->width);
+		ft_putchar_sized(converted, 1, print_data->width, count);
 	else
-		ft_putstr_fd(converted, 1);
-	count->length += counter + size_print;
+		ft_putstr_fd(converted, 1, count);
 }
 
 static void	print_with_width(t_p *print_data, t_c *count, char *converted)
@@ -69,7 +68,6 @@ static void	print_with_width(t_p *print_data, t_c *count, char *converted)
 		ft_putchar_sized(converted, 1, print_data->width, count);
 	else
 		ft_putstr_fd(converted, 1, count);
-	count->length += counter + size_print;
 }
 
 size_t	print_int(va_list args, t_p *print_data, t_c *count)
