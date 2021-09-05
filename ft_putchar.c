@@ -23,9 +23,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	count = 0;
 	if (s == NULL)
-	{
 		return ;
-	}
 	while (s[count])
 	{
 		write(fd, &s[count], 1);

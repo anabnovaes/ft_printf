@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 11:03:20 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 19:24:26 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:03:36 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,12 @@ void	print_char(va_list args, t_p *print_data, t_c *count)
 
 	data_to_print = va_arg(args, int);
 	if (print_data->flag_minus)
-	{
 		print_with_minus(data_to_print, print_data, count);
-	}
 	else if (print_data->width)
-	{
 		print_with_width(data_to_print, print_data, count);
-	}
 	else
 	{
 		write(1, &data_to_print, 1);
-		count->counter += 1;
+		count->length += 1;
 	}
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 {
@@ -19,8 +18,8 @@ void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 		print_char(args, print, count);
 	else if (*data == '%')
 		print_percent(print, count);
-	else if (*data == 'd' || *data == 'i')
-		print_int(args, print, count);
+	//else if (*data == 'd' || *data == 'i')
+	//	print_int(args, print, count);
 	else
 		count->counter += 1;
 }
@@ -72,7 +71,8 @@ int	ft_printf(const char *format, ...)
 	return (counters.length);
 }
 
-int	main(void)
+/* int main(void)
 {
-	ft_printf("%%");
+	ft_printf("%c%c%c", 'a', 'b', 'c');
 }
+*/
