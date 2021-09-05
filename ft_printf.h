@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/05 20:17:03 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:36:49 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t count, size_t size);
 
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd, t_c *count);
 
 size_t	ft_isflag(size_t str);
 
@@ -83,6 +83,6 @@ char	*ft_itoa(size_t n);
 
 size_t	print_string(va_list args, t_p *print_data, t_c *count);
 
-void	ft_putchar_sized(char *s, int fd, size_t size);
+void	ft_putchar_sized(char *s, int fd, size_t size, t_c *count);
 
 #endif

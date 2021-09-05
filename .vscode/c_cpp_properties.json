@@ -9,7 +9,7 @@
       "macFrameworkPath": [
         "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"
       ],
-      "compilerPath": "gcc",
+      "compilerPath": "/usr/bin/gcc",
       "cStandard": "${default}",
       "cppStandard": "${default}",
       "intelliSenseMode": "macos-gcc-x64",
