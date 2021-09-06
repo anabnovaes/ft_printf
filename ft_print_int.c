@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/05 20:54:07 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/06 17:41:52 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	print_with_minus(t_p *print_data, t_c *count, char *converted)
 	size_print = ft_strlen(converted);
 	if (print_data->width > size_print)
 	{
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 		while (print_data->width - size_print > counter)
 		{
 			write(1, " ", 1);
@@ -29,9 +29,9 @@ static void	print_with_minus(t_p *print_data, t_c *count, char *converted)
 		}
 	}
 	else if (print_data->width < size_print)
-		ft_putchar_sized(converted, 1, print_data->width, count);
+		ft_putchar_sized(converted, print_data->width, count);
 	else
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 	count->length += counter + size_print;
 }
 
@@ -49,12 +49,12 @@ static void	print_with_zero(t_p *print_data, t_c *count, char *converted)
 			write(1, "0", 1);
 			counter++;
 		}
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 	}
 	else if (print_data->width < size_print)
-		ft_putchar_sized(converted, 1, print_data->width, count);
+		ft_putchar_sized(converted, print_data->width, count);
 	else
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 }
 
 static void	print_with_width(t_p *print_data, t_c *count, char *converted)
@@ -65,9 +65,9 @@ static void	print_with_width(t_p *print_data, t_c *count, char *converted)
 	counter = 0;
 	size_print = ft_strlen(converted);
 	if (print_data->width < size_print)
-		ft_putchar_sized(converted, 1, print_data->width, count);
+		ft_putchar_sized(converted, print_data->width, count);
 	else
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 }
 
 size_t	print_int(va_list args, t_p *print_data, t_c *count)
@@ -77,7 +77,7 @@ size_t	print_int(va_list args, t_p *print_data, t_c *count)
 
 	converted = NULL;
 	print = va_arg(args, int);
-	if (!print || print != 0)
+	if (!print)
 		return (0);
 	converted = ft_itoa(print);
 	if (print_data->flag_minus)
@@ -87,7 +87,7 @@ size_t	print_int(va_list args, t_p *print_data, t_c *count)
 	else if (print_data->width)
 		print_with_width(print_data, count, converted);
 	else
-		ft_putstr_fd(converted, 1, count);
+		ft_putstr_fd(converted, count);
 	free(converted);
 	return (1);
 }

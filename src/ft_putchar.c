@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/05 20:53:43 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/06 17:35:33 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-void	ft_putstr_fd(char *s, int fd, t_c *count)
+void	ft_putstr_fd(char *s, t_c *count)
 {
 	size_t	counter;
 
@@ -26,20 +26,20 @@ void	ft_putstr_fd(char *s, int fd, t_c *count)
 		return ;
 	while (s[counter])
 	{
-		write(fd, &s[counter], 1);
+		write(1, &s[counter], 1);
 		counter++;
 	}
 	count->length += counter;
 }
 
-void	ft_putchar_sized(char *s, int fd, size_t size, t_c *count)
+void	ft_putchar_sized(char *s, size_t size, t_c *count)
 {
 	size_t	counter;
 
 	counter = 0;
 	while (size > counter)
 	{
-		write(fd, &s[counter], 1);
+		write(1, &s[counter], 1);
 		counter++;
 	}
 	count->length += counter;
