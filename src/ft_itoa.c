@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 20:03:26 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 22:03:53 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/09 20:33:27 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	*convert_negative(int value, int size, char *string)
 	return (string);
 }
 
-char	*ft_itoa(size_t n)
+char	*ft_itoa(int n)
 {
 	char		*value;
 	int			size;
@@ -82,7 +82,7 @@ char	*ft_itoa(size_t n)
 	value = ft_calloc(sizeof(char), size + 1 + spaces);
 	if (!value)
 		return (NULL);
-	if (n <= 0)
+	if (n < 0)
 	{
 		value = convert_negative(n, size, value);
 	}

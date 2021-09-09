@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/06 17:41:52 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/09 20:39:00 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,32 @@ static void	print_with_width(t_p *print_data, t_c *count, char *converted)
 		ft_putstr_fd(converted, count);
 }
 
-size_t	print_int(va_list args, t_p *print_data, t_c *count)
+static void	print_specifier(char *converted, t_p *print_data, t_c *count)
 {
-	int		print;
-	char	*converted;
-
-	converted = NULL;
-	print = va_arg(args, int);
-	if (!print)
-		return (0);
-	converted = ft_itoa(print);
 	if (print_data->flag_minus)
 		print_with_minus(print_data, count, converted);
 	else if (print_data->flag_zero)
 		print_with_zero(print_data, count, converted);
 	else if (print_data->width)
 		print_with_width(print_data, count, converted);
+}
+
+size_t	print_int(va_list args, t_p *p_data, t_c *count)
+{
+	int			print;
+	char		*converted;
+
+	print = 0;
+	converted = NULL;
+	print = va_arg(args, int);
+	converted = ft_itoa(print);
+	if (!converted)
+	{
+		free(converted);
+		return (0);
+	}
+	else if (p_data->flag_minus || p_data->flag_zero || p_data->width)
+		print_specifier(converted, p_data, count);
 	else
 		ft_putstr_fd(converted, count);
 	free(converted);
