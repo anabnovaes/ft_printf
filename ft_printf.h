@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 16:52:06 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:13:47 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,11 @@ void	ft_putchar_sized(char *s, size_t size, t_c *count);
 
 size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data);
 
+size_t	print_pointer(va_list args, t_p *p_data, t_c *count);
+
 char	*ft_utoa(unsigned int integer);
+
+char	*ft_utoa_long(unsigned long integer);
 
 char	*ft_toupper(char *c);
 

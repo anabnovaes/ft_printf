@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 22:07:45 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:27:05 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/09/10 17:10:14 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 17:26:36 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	get_size(unsigned long int value)
+static int	get_size(unsigned long value)
 {
 	int			size;
 	long int	check_value;
@@ -29,7 +29,7 @@ static int	get_size(unsigned long int value)
 	return (size);
 }
 
-static char	*convert_value(long int value, int size, char *string)
+static char	*convert_value(unsigned long value, int size, char *string)
 {
 	int			last_value;
 	int			counter;
@@ -49,7 +49,7 @@ static char	*convert_value(long int value, int size, char *string)
 	return (string);
 }
 
-char	*ft_utoa(unsigned int integer)
+char	*ft_utoa_long(unsigned long integer)
 {
 	char	*value;
 	int		size;

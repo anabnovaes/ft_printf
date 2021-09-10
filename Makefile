@@ -6,7 +6,7 @@
 #    By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:54:26 by apaula-b          #+#    #+#              #
-#    Updated: 2021/09/10 15:20:31 by apaula-b         ###   ########.fr        #
+#    Updated: 2021/09/10 17:31:38 by apaula-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC= gcc
 
 HEADER = ft_printf.h
 
-SOURCE = ./src/
+SRC = ./src/
 
 #flags to compile
 FLAGS = -Wall -Wextra -Werror
@@ -25,14 +25,14 @@ FILES = ft_print_int.c ft_print_char.c ft_print_percent.c ft_printf.c \
 		ft_print_string.c ft_print_pointer.c ft_print_hexa.c
 
 
-SRC_FILES = ${SOURCE}ft_atoi.c ${SOURCE}ft_calloc.c ${SOURCE}ft_get_flags.c \
-			${SOURCE}ft_get_types.c ${SOURCE}ft_itoa.c ${SOURCE}ft_utoa.c \
-			${SOURCE}ft_sizes.c ${SOURCE}ft_toupper.c ${SOURCE}ft_putchar.c \
-			${SOURCE}ft_start_functions.c ${SOURCE}ft_convert_int.c
+SRC_FILES = ${SRC}ft_atoi.c ${SRC}ft_calloc.c  ${SRC}ft_conversions.c\
+			${SRC}ft_get_flags.c ${SRC}ft_get_types.c ${SRC}ft_itoa.c  \
+			${SRC}ft_putchar.c ${SRC}ft_sizes.c ${SRC}ft_start_functions.c \
+			${SRC}ft_utoa_long.c ${SRC}ft_utoa.c
 
-OBJ = $(FILES:.c=.o) ft_atoi.o ft_calloc.o ft_get_flags.o ft_get_types.o ft_itoa.o \
-		ft_start_functions.o ft_sizes.o ft_toupper.o ft_putchar.o ft_utoa.o\
-		ft_convert_int.o
+OBJ = $(FILES:.c=.o) ft_atoi.o ft_calloc.o ft_conversions.o ft_get_flags.o \
+		ft_get_types.o ft_itoa.o ft_putchar.o ft_sizes.o ft_start_functions.o \
+		ft_utoa_long.o ft_utoa.o
 
 
 #1st rule to execute

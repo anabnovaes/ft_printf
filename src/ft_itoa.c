@@ -6,13 +6,13 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 20:03:26 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 15:14:14 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:27:34 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	check_size(long int value)
+static int	get_size(long int value)
 {
 	int			size;
 	long int	check_value;
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 	int			spaces;
 
 	spaces = 0;
-	size = check_size(n);
+	size = get_size(n);
 	if (n < 0)
 		spaces = 1;
 	value = ft_calloc(sizeof(char), size + 1 + spaces);
@@ -98,7 +98,7 @@ char	*ft_itoa_unsigned(unsigned int n)
 	int			spaces;
 
 	spaces = 0;
-	size = check_size(n);
+	size = get_size(n);
 	if (n < 0)
 		spaces = 1;
 	value = ft_calloc(sizeof(char), size + 1 + spaces);
