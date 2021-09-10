@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 10:31:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 14:54:51 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:51:26 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ static void	print_specifier(char *converted, t_p *print_data, t_c *count)
 
 size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data)
 {
-	int			print;
-	char		*converted;
+	unsigned int	print;
+	char			*converted;
 
 	print = 0;
 	converted = NULL;
-	print = va_arg(args, int);
+	print = va_arg(args, unsigned int);
 	converted = ft_utoa(print);
 	if (*data == 'X')
 		ft_toupper(converted);

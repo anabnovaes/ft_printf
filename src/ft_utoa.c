@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 22:07:45 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 10:40:56 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:52:42 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	check_size(long int value)
 	return (size);
 }
 
-static char	*convert_positive(long int value, int size, char *string)
+static char	*convert_value(long int value, int size, char *string)
 {
 	int			last_value;
 	int			counter;
@@ -37,45 +37,19 @@ static char	*convert_positive(long int value, int size, char *string)
 	counter = 1;
 	while (counter <= size)
 	{
-		last_value = value % 10;
-		value /= 10;
+		last_value = value % 16;
+		value /= 16;
 		if (last_value < 10)
-			string[counter] = (last_value * -1) + '0';
+			string[size - counter] = (last_value) + '0';
 		else
-			string[counter] = (last_value * -1) + 87;
+			string[size - counter] = (last_value) + 87;
 		counter++;
 	}
 	string[size] = '\0';
 	return (string);
 }
 
-static char	*convert_negative(int value, int size, char *string)
-{
-	int			last_value;
-	int			counter;
-
-	if (!value)
-	{
-		string = "0";
-		return (string);
-	}
-	else
-		string[0] = '-';
-	counter = size;
-	while (counter > 0)
-	{
-		last_value = value % 16;
-		value /= 10;
-		if (last_value > -10)
-			string[counter] = (last_value * -1) + '0';
-		else
-			string[counter] = (last_value * -1) + 87;
-		counter--;
-	}
-	return (string);
-}
-
-char	*ft_utoa(long int integer)
+char	*ft_utoa(unsigned int integer)
 {
 	char	*value;
 	int		size;
@@ -88,11 +62,6 @@ char	*ft_utoa(long int integer)
 	value = ft_calloc(sizeof(char), size + 1 + spaces);
 	if (!value)
 		return (NULL);
-	if (integer < 0)
-	{
-		value = convert_negative(integer, size, value);
-	}
-	else
-		value = convert_positive(integer, size, value);
+	value = convert_value(integer, size, value);
 	return (value);
 }
