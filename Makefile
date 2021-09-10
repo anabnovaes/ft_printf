@@ -6,7 +6,7 @@
 #    By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:54:26 by apaula-b          #+#    #+#              #
-#    Updated: 2021/09/10 17:54:05 by apaula-b         ###   ########.fr        #
+#    Updated: 2021/09/10 18:33:21 by apaula-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ SRC = ./src/
 #flags to compile
 FLAGS = -Wall -Wextra -Werror
 
-FILES = ft_print_int.c ft_print_char.c ft_print_percent.c ft_printf.c \
-		ft_print_string.c ft_print_pointer.c ft_print_hexa.c
+FILES = ft_print_int.c ft_print_percent.c ft_printf.c ft_print_string.c \
+		ft_print_pointer.c ft_print_hexa.c
 
 
 SRC_FILES = ${SRC}ft_atoi.c ${SRC}ft_calloc.c  ${SRC}ft_conversions.c\

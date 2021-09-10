@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:10:14 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:37:48 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:32:00 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_utoa_long(unsigned long integer)
 	size = get_size(integer);
 	if (integer < 0)
 		spaces = 1;
-	value = ft_calloc(sizeof(char), size + 1 + spaces + 2);
+	value = ft_calloc(sizeof(char), size + 1 + spaces);
 	if (!value)
 		return (NULL);
 	value = convert_value(integer, size, value);
