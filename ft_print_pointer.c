@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 17:53:10 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:14:18 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:42:07 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,9 @@ size_t	print_pointer(va_list args, t_p *p_data, t_c *count)
 	data_to_print = va_arg(args, unsigned long);
 	if (!data_to_print)
 	{
-		print_null(count);
+		ft_putstr_fd("0x0", count);
 		return (0);
 	}
-	write(1, "0x", 2);
 	converted = ft_utoa_long(data_to_print);
 	if (!converted)
 	{

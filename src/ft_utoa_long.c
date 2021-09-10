@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:10:14 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:26:36 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:37:48 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	get_size(unsigned long value)
 {
-	int			size;
-	long int	check_value;
+	unsigned long	size;
+	unsigned long	check_value;
 
-	size = 1;
+	size = 3;
 	if (value < 0)
 		value *= -1;
 	check_value = value / 16 ;
@@ -31,8 +31,8 @@ static int	get_size(unsigned long value)
 
 static char	*convert_value(unsigned long value, int size, char *string)
 {
-	int			last_value;
-	int			counter;
+	int		last_value;
+	int		counter;
 
 	counter = 1;
 	while (counter <= size)
@@ -45,6 +45,8 @@ static char	*convert_value(unsigned long value, int size, char *string)
 			string[size - counter] = (last_value) + 87;
 		counter++;
 	}
+	string[0] = '0';
+	string[1] = 'x';
 	string[size] = '\0';
 	return (string);
 }
@@ -59,7 +61,7 @@ char	*ft_utoa_long(unsigned long integer)
 	size = get_size(integer);
 	if (integer < 0)
 		spaces = 1;
-	value = ft_calloc(sizeof(char), size + 1 + spaces);
+	value = ft_calloc(sizeof(char), size + 1 + spaces + 2);
 	if (!value)
 		return (NULL);
 	value = convert_value(integer, size, value);
