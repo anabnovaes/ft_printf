@@ -6,34 +6,11 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 17:53:10 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:42:07 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:46:51 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	print_with_minus(t_p *print_data, t_c *count, char *converted)
-{
-	size_t	size_print;
-	size_t	counter;
-
-	counter = 0;
-	size_print = ft_strlen(converted);
-	if (print_data->width > size_print)
-	{
-		ft_putstr_fd(converted, count);
-		while (print_data->width - size_print > counter)
-		{
-			write(1, " ", 1);
-			counter++;
-		}
-	}
-	else if (print_data->width < size_print)
-		ft_putchar_sized(converted, print_data->width, count);
-	else
-		ft_putstr_fd(converted, count);
-	count->length += counter + size_print;
-}
 
 static void	print_with_zero(t_p *print_data, t_c *count, char *converted)
 {

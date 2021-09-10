@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 17:13:47 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:46:45 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,7 @@ char	*ft_utoa(unsigned int integer);
 char	*ft_utoa_long(unsigned long integer);
 
 char	*ft_toupper(char *c);
+
+void	print_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
 #endif
