@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 15:18:04 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/09/10 10:31:12 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 14:54:51 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,17 @@ static void	print_specifier(char *converted, t_p *print_data, t_c *count)
 		print_with_width(print_data, count, converted);
 }
 
-size_t	print_int(va_list args, t_p *p_data, t_c *count, const char *type)
+size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data)
 {
-	char			*converted;
+	int			print;
+	char		*converted;
 
+	print = 0;
 	converted = NULL;
-	converted = convert_int(args, type);
+	print = va_arg(args, int);
+	converted = ft_utoa(print);
+	if (*data == 'X')
+		ft_toupper(converted);
 	if (!converted)
 	{
 		free(converted);

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_convert_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:22:35 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 14:08:22 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/09/10 15:17:31 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 15:19:00 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_toupper(char *c)
+char	*convert_int(va_list args, const char *type)
 {
-	int	counter;
+	int				print;
+	unsigned int	print_positive;
+	char			*converted;
 
-	counter = 0;
-	while (c[counter])
+	converted = NULL;
+	if (*type == 'u')
 	{
-		if (c[counter] >= 'a' && c[counter] <= 'z')
-			c[counter] -= 32;
-		counter++;
+		print_positive = va_arg(args, unsigned int);
+		converted = ft_itoa_unsigned(print_positive);
 	}
-	return (c);
+	else
+	{
+		print = va_arg(args, int);
+		converted = ft_itoa(print);
+	}
+	return (converted);
 }

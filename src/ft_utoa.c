@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 20:03:26 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 15:14:14 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/09/09 22:07:45 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 10:40:56 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	check_size(long int value)
 	size = 1;
 	if (value < 0)
 		value *= -1;
-	check_value = value / 10 ;
+	check_value = value / 16 ;
 	while (check_value >= 1)
 	{
-		check_value /= 10 ;
+		check_value /= 16 ;
 		size++;
 	}
 	return (size);
@@ -39,7 +39,10 @@ static char	*convert_positive(long int value, int size, char *string)
 	{
 		last_value = value % 10;
 		value /= 10;
-		string[size - counter] = last_value + '0';
+		if (last_value < 10)
+			string[counter] = (last_value * -1) + '0';
+		else
+			string[counter] = (last_value * -1) + 87;
 		counter++;
 	}
 	string[size] = '\0';
@@ -61,49 +64,35 @@ static char	*convert_negative(int value, int size, char *string)
 	counter = size;
 	while (counter > 0)
 	{
-		last_value = value % 10;
+		last_value = value % 16;
 		value /= 10;
-		string[counter] = (last_value * -1) + '0';
+		if (last_value > -10)
+			string[counter] = (last_value * -1) + '0';
+		else
+			string[counter] = (last_value * -1) + 87;
 		counter--;
 	}
 	return (string);
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(long int integer)
 {
-	char		*value;
-	int			size;
-	int			spaces;
+	char	*value;
+	int		size;
+	int		spaces;
 
 	spaces = 0;
-	size = check_size(n);
-	if (n < 0)
+	size = check_size(integer);
+	if (integer < 0)
 		spaces = 1;
 	value = ft_calloc(sizeof(char), size + 1 + spaces);
 	if (!value)
 		return (NULL);
-	if (n < 0)
+	if (integer < 0)
 	{
-		value = convert_negative(n, size, value);
+		value = convert_negative(integer, size, value);
 	}
 	else
-		value = convert_positive(n, size, value);
-	return (value);
-}
-
-char	*ft_itoa_unsigned(unsigned int n)
-{
-	char		*value;
-	int			size;
-	int			spaces;
-
-	spaces = 0;
-	size = check_size(n);
-	if (n < 0)
-		spaces = 1;
-	value = ft_calloc(sizeof(char), size + 1 + spaces);
-	if (!value)
-		return (NULL);
-	value = convert_positive(n, size, value);
+		value = convert_positive(integer, size, value);
 	return (value);
 }

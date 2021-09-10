@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/09 20:29:23 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/10 15:18:52 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,22 @@ void	print_percent(t_p *print_data, t_c *count);
 
 void	print_null(t_c *count);
 
-size_t	print_int(va_list args, t_p *print_data, t_c *count);
+size_t	print_int(va_list args, t_p *print_data, t_c *count, const char *type);
+
+char	*convert_int(va_list args, const char *type);
 
 char	*ft_itoa(int n);
+
+char	*ft_itoa_unsigned(unsigned int n);
 
 size_t	print_string(va_list args, t_p *print_data, t_c *count);
 
 void	ft_putchar_sized(char *s, size_t size, t_c *count);
 
-size_t	print_pointer(va_list args, t_p *print_data, t_c *count);
+size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data);
+
+char	*ft_utoa(long int integer);
+
+char	*ft_toupper(char *c);
 
 #endif
