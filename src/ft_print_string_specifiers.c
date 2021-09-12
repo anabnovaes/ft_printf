@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 23:17:01 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 23:18:07 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 23:44:21 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,22 @@ size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print)
 			counter++;
 		}
 	}
+	else if (print_data->precision > size_print)
+		ft_putstr_fd(value_to_print, count);
 	else
 		ft_putstr_fd(value_to_print, count);
 	count->length += counter;
+	return (1);
+}
+
+size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print)
+{
+	size_t	size_print;
+
+	size_print = ft_strlen(value_to_print);
+	if (p_data->precision > size_print)
+		ft_putstr_fd(value_to_print, count);
+	else
+		ft_putchar_sized(value_to_print, p_data->precision, count);
 	return (1);
 }
