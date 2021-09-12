@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 22:20:38 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 23:10:17 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ size_t	get_precision(const char *data, t_p *print_data, va_list args)
 	print_data->width = ft_atoi(data);
 	if (!print_data->width)
 	{
-		print_data->precision = true;
+		print_data->err_precision = true;
 		return (1);
 	}
 	counter_size = get_size_int(print_data->width);

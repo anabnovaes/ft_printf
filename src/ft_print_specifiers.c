@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:44:45 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 22:12:45 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 23:16:55 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	print_with_minus(t_p *print_data, t_c *count, char *value_to_print)
 
 	counter = 0;
 	size_print = ft_strlen(value_to_print);
-	if (print_data->precision)
+	if (print_data->err_precision)
 		return (0);
 	else if (print_data->width > size_print)
 	{
@@ -46,12 +46,19 @@ void	print_with_width(t_p *print_data, t_c *count, char *converted)
 
 	counter = 0;
 	size_print = ft_strlen(converted);
-	while (print_data->width - size_print > counter)
+	if (print_data->width > size_print)
 	{
-		write(1, " ", 1);
-		counter++;
+		while (print_data->width - size_print > counter)
+		{
+			write(1, " ", 1);
+			counter++;
+		}
+		ft_putstr_fd(converted, count);
 	}
-	ft_putstr_fd(converted, count);
+	else
+	{
+		ft_putchar_sized(converted, print_data->width, count);
+	}
 	count->length += counter;
 }
 

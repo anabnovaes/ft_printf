@@ -3,3 +3,6 @@ pft_2019/
 .vscode
 ft_printf_tester
 printfTesterpft_2019/
+a.out.dSYM/
+a.out
+.DS_Store
