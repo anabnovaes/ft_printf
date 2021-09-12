@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/08 18:25:21 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 21:47:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,4 @@ void	ft_putchar_sized(char *s, size_t size, t_c *count)
 		counter++;
 	}
 	count->length += counter;
-}
-
-void	print_null(t_c *count)
-{
-	write(1, "(null)", 6);
-	count->length += 6;
 }

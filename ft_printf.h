@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 18:28:35 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 22:13:10 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_params
 	bool	flag_minus;
 	bool	flag_zero;
 	size_t	width;
-	size_t	precision;
+	bool	precision;
 }		t_p;
 
 typedef struct s_counters
@@ -99,7 +99,7 @@ char	*ft_utoa_long(unsigned long integer);
 
 char	*ft_toupper(char *c);
 
-void	print_with_minus(t_p *print_data, t_c *count, char *value_to_print);
+size_t	print_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
 void	print_with_width(t_p *print_data, t_c *count, char *converted);
 

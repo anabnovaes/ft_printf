@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/07/01 22:42:13 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/11 22:20:38 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	get_flags(const char *data, va_list args, t_p *print_data)
 	size_t	c_positions;
 
 	c_positions = 0;
-	while (!ft_isdigit(data[c_positions]) || data[c_positions] == '0')
+	while (ft_isflag(data[c_positions]))
 	{
 		if (*data == '-')
 			print_data->flag_minus = true;
@@ -55,6 +55,11 @@ size_t	get_precision(const char *data, t_p *print_data, va_list args)
 		return (1);
 	}
 	print_data->width = ft_atoi(data);
+	if (!print_data->width)
+	{
+		print_data->precision = true;
+		return (1);
+	}
 	counter_size = get_size_int(print_data->width);
 	return (counter_size);
 }
