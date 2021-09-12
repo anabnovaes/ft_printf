@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 23:37:28 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/12 00:26:12 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	print_with_flag_zero(t_p *print_data, t_c *count, char *converted);
 
 void	print_specifier(char *converted, t_p *print_data, t_c *count);
 
-void	print_str_with_width(t_p *print_data, t_c *count, char *converted);
+void	print_str_with_width(t_p *p_data, t_c *count, char *converted);
 
 size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 

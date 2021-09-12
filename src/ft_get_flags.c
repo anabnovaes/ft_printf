@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 23:55:58 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/09/12 00:06:47 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,16 @@ size_t	get_precision(const char *data, t_p *print_data, va_list args)
 		return (1);
 	}
 	print_data->precision = ft_atoi(&data[1]);
+	if (data[1] == '0')
+	{
+		counter_size++;
+		print_data->width = 1;
+	}
 	if (!print_data->precision)
 	{
 		print_data->err_precision = true;
-		return (1);
+		return (counter_size + 1);
 	}
-	counter_size = get_size_int(print_data->precision) + 1;
+	counter_size += get_size_int(print_data->precision) + 1;
 	return (counter_size);
 }
