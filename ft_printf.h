@@ -114,4 +114,6 @@ size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
 size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print);
 
+void	ft_putspaces(size_t value, t_c *count);
+
 #endif

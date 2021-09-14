@@ -48,11 +48,7 @@ void	print_with_width(t_p *print_data, t_c *count, char *converted)
 	size_print = ft_strlen(converted);
 	if (print_data->width > size_print)
 	{
-		while (print_data->width - size_print > counter)
-		{
-			write(1, " ", 1);
-			counter++;
-		}
+		ft_putspaces(print_data->width - size_print, count);
 		ft_putstr_fd(converted, count);
 	}
 	else

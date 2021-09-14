@@ -15,21 +15,17 @@
 void	print_str_with_width(t_p *p_data, t_c *count, char *converted)
 {
 	size_t	size_print;
-	size_t	counter;
 
-	counter = 0;
 	size_print = ft_strlen(converted);
-	if (p_data->err_precision)
-		counter = p_data->width;
+	if (p_data->err_precision && p_data->width)
+		ft_putspaces(p_data->width, count);
+	else if (p_data->err_precision)
+		count->length = p_data->width;
 	else if (p_data->precision && p_data->width > p_data->precision)
 		print_str_with_precision(p_data, count, converted);
 	else if (p_data->width > size_print)
 	{
-		while (p_data->width - size_print > counter)
-		{
-			write(1, " ", 1);
-			counter++;
-		}
+		ft_putspaces(p_data->width - size_print, count);
 		ft_putstr_fd(converted, count);
 	}
 	else if (p_data->width == p_data->precision)
@@ -38,7 +34,6 @@ void	print_str_with_width(t_p *p_data, t_c *count, char *converted)
 		ft_putstr_fd(converted, count);
 	else
 		ft_putchar_sized(converted, p_data->width, count);
-	count->length += counter;
 }
 
 static size_t	get_number_spaces(t_p *p_data, size_t size_print)
@@ -58,25 +53,26 @@ static size_t	get_number_spaces(t_p *p_data, size_t size_print)
 
 size_t	print_str_with_minus(t_p *p_data, t_c *count, char *value_to_print)
 {
-	size_t	size_print;
+	size_t	size_c;
 	size_t	counter;
 	size_t	number_spaces;
 
 	counter = 0;
-	size_print = ft_strlen(value_to_print);
-	if (p_data->width > p_data->precision || p_data->width > size_print)
+	size_c = ft_strlen(value_to_print);
+	if (p_data->err_precision && !p_data->width)
+		count->length = size_c;
+	else if (p_data->err_precision)
+		count->length = p_data->width;
+	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
 	{
-		if (p_data->precision)
+		if (p_data->precision > size_c)
+			ft_putchar_sized(value_to_print, size_c, count);
+		else if (p_data->precision)
 			ft_putchar_sized(value_to_print, p_data->precision, count);
 		else
 			ft_putstr_fd(value_to_print, count);
-		number_spaces = get_number_spaces(p_data, size_print);
-		while (number_spaces > counter)
-		{
-			write(1, " ", 1);
-			counter++;
-		}
-		count->length += counter;
+		number_spaces = get_number_spaces(p_data, size_c);
+		ft_putspaces(number_spaces, count);
 	}
 	else
 		ft_putstr_fd(value_to_print, count);
@@ -87,10 +83,8 @@ size_t	print_str_with_minus(t_p *p_data, t_c *count, char *value_to_print)
 size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print)
 {
 	size_t	size_print;
-	size_t	counter;
 	size_t	number_spaces;
 
-	counter = 0;
 	size_print = ft_strlen(value_to_print);
 	if (p_data->width > p_data->precision)
 	{
@@ -98,12 +92,7 @@ size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print)
 			number_spaces = p_data->width - size_print;
 		else
 			number_spaces = p_data->width - p_data->precision;
-		while (number_spaces > counter)
-		{
-			write(1, " ", 1);
-			counter++;
-		}
-		count->length += counter;
+		ft_putspaces(number_spaces, count);
 		ft_putchar_sized(value_to_print, p_data->precision, count);
 	}
 	else if (p_data->precision > size_print)

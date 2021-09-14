@@ -44,3 +44,16 @@ void	ft_putchar_sized(char *s, size_t size, t_c *count)
 	}
 	count->length += counter;
 }
+
+void	ft_putspaces(size_t value, t_c *count)
+{
+	size_t	counter;
+
+	counter = 0;
+	while (value > counter)
+	{
+		write(1, " ", 1);
+		counter++;
+	}
+	count->length += counter;
+}
