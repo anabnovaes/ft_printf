@@ -48,9 +48,9 @@ size_t	ft_isalpha(size_t c);
 
 size_t	ft_isdigit(size_t c);
 
-size_t	get_precision(const char *data, t_p *print_data, va_list args);
+size_t	get_precision(const char *data, t_p *print_data);
 
-size_t	get_flags(const char *data, va_list args, t_p *print_data);
+size_t	get_flags(const char *data, t_p *print_data);
 
 int		get_width(const char *data, t_p *print_data);
 

@@ -18,9 +18,7 @@ size_t	ft_strlen(char *s)
 
 	size = 0;
 	while (s[size])
-	{
 		size++;
-	}
 	return (size);
 }
 
@@ -32,10 +30,10 @@ int	get_size_int(long int value)
 	size = 1;
 	if (value < 0)
 		value *= -1;
-	check_value = value / 10 ;
+	check_value = value / 10;
 	while (check_value >= 1)
 	{
-		check_value /= 10 ;
+		check_value /= 10;
 		size++;
 	}
 	return (size);

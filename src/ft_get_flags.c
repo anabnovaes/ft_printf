@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-size_t	get_flags(const char *data, va_list args, t_p *print_data)
+size_t	get_flags(const char *data, t_p *print_data)
 {
 	size_t	c_positions;
 
@@ -23,8 +23,6 @@ size_t	get_flags(const char *data, va_list args, t_p *print_data)
 			print_data->flag_minus = true;
 		else if (*data == '0')
 			print_data->flag_zero = true;
-		else if (*data == '*')
-			print_data->width = va_arg(args, size_t);
 		else
 			return (c_positions);
 		c_positions++;
@@ -42,29 +40,22 @@ int	get_width(const char *data, t_p *print_data)
 	return (size_int);
 }
 
-size_t	get_precision(const char *data, t_p *print_data, va_list args)
+size_t	get_precision(const char *data, t_p *print_data)
 {
-	size_t	counter_size;
+	size_t	counter;
 
-	counter_size = 0;
-	if (data[counter_size] == '*')
-	{
-		print_data->precision = va_arg(args, size_t);
-		return (1);
-	}
+	counter = 0;
 	print_data->precision = ft_atoi(&data[1]);
 	if (data[1] == '0' && !print_data->precision)
-	{
-		counter_size++;
-	}
+		counter++;
 	else if (data[1] == '0')
-		while (data[counter_size + 1] == '0')
-			counter_size++;
+		while (data[counter + 1] == '0')
+			counter++;
 	if (!print_data->precision)
 	{
 		print_data->err_precision = true;
-		return (counter_size + 1);
+		return (counter + 1);
 	}
-	counter_size += get_size_int(print_data->precision) + 1;
-	return (counter_size);
+	counter += get_size_int(print_data->precision) + 1;
+	return (counter);
 }

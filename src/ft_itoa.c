@@ -83,9 +83,7 @@ char	*ft_itoa(int n)
 	if (!value)
 		return (NULL);
 	if (n < 0)
-	{
 		value = convert_negative(n, size, value);
-	}
 	else
 		value = convert_positive(n, size, value);
 	return (value);

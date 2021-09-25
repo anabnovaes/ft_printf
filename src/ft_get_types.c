@@ -24,5 +24,5 @@ size_t	ft_isdigit(size_t c)
 
 size_t	ft_isflag(size_t str)
 {
-	return (str == '-' || str == '*' || str == '0');
+	return (str == '-' || str == '0');
 }
