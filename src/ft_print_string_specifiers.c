@@ -62,7 +62,7 @@ size_t	print_str_with_minus(t_p *p_data, t_c *count, char *print_value)
 	if (p_data->err_precision && !p_data->width)
 		count->length = size_c;
 	else if (p_data->err_precision)
-		count->length = print_data->width;
+		count->length = p_data->width;
 	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
 	{
 		if (p_data->precision > size_c)
