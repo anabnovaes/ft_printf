@@ -36,11 +36,11 @@ void	get_data(const char *data, va_list args, t_c *c)
 
 	start_struct(&print_data);
 	while (ft_isflag(data[c->counter]))
-		c->counter += get_flags(data + c->counter, args, &print_data);
+		c->counter += get_flags(data + c->counter, &print_data);
 	while (ft_isdigit(data[c->counter]))
 		c->counter += get_width(data + c->counter, &print_data);
 	if (data[c->counter] == '.')
-		c->counter += get_precision(data + c->counter, &print_data, args);
+		c->counter += get_precision(data + c->counter, &print_data);
 	if (ft_isalpha(data[c->counter]) || data[c->counter] == '%')
 		get_type(data + c->counter, args, &print_data, c);
 	else if (data[c->counter] == ' ' || !data[c->counter])

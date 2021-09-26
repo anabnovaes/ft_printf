@@ -25,7 +25,6 @@ int	ft_atoi(const char *str)
 {
 	int		counter;
 	int		sum;
-	int		signal;
 
 	counter = 0;
 	sum = 0;
