@@ -25,9 +25,8 @@ size_t	print_string(va_list args, t_p *print_data, t_c *count)
 		print_str_with_minus(print_data, count, data_to_print);
 	else if (print_data->width)
 		print_str_with_width(print_data, count, data_to_print);
-	else if (print_data->err_precision && !print_data->width)
-		return (1);
-	else if (print_data->err_precision)
+	else if ((print_data->err_precision && !print_data->width)
+				|| print_data->err_precision )
 		return (1);
 	else if (print_data->precision)
 		print_str_with_precision(print_data, count, data_to_print);
@@ -36,18 +35,19 @@ size_t	print_string(va_list args, t_p *print_data, t_c *count)
 	return (1);
 }
 
-void	print_char(va_list args, t_p *print_data, t_c *count)
+size_t	print_char(va_list args, t_p *print_data, t_c *count)
 {
 	char	data_to_print;
 
 	data_to_print = va_arg(args, int);
-	if (print_data->flag_minus && print_data->width)
-		print_with_minus(print_data, count, &data_to_print);
+	if ((print_data->flag_minus && print_data->width) || print_data->flag_minus)
+		print_char_with_minus(print_data, count, data_to_print);
 	else if (print_data->width)
-		print_with_width(print_data, count, &data_to_print);
+		print_char_with_width(print_data, count,data_to_print);
 	else
 	{
 		write(1, &data_to_print, 1);
 		count->length += 1;
 	}
+	return (1);
 }

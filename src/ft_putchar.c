@@ -57,3 +57,9 @@ void	ft_putspaces(size_t value, t_c *count)
 	}
 	count->length += counter;
 }
+
+void ft_putstr(char string, t_c *count)
+{
+	write(1, &string, 1);
+	count->length += 1;
+}

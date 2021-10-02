@@ -58,7 +58,7 @@ void	get_type(const char *data, va_list args, t_p *print, t_c *count);
 
 void	ft_putchar_fd(char c, int fd);
 
-void	print_char(va_list args, t_p *print_data, t_c *count);
+size_t	print_char(va_list args, t_p *print_data, t_c *count);
 
 int		ft_atoi(const char *str);
 
@@ -115,5 +115,13 @@ size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print);
 
 void	ft_putspaces(size_t value, t_c *count);
+
+void	print_char_with_width(t_p *print_data, t_c *count, char converted);
+
+size_t	get_number_spaces(t_p *print_data, size_t size_print);
+
+void ft_putstr(char string, t_c *count);
+
+size_t	print_char_with_minus(t_p *p_data, t_c *count, char converted);
 
 #endif

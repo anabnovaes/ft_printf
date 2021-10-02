@@ -36,7 +36,7 @@ void	print_str_with_width(t_p *print_data, t_c *count, char *converted)
 		ft_putchar_sized(converted, print_data->width, count);
 }
 
-static size_t	get_number_spaces(t_p *print_data, size_t size_print)
+size_t	get_number_spaces(t_p *print_data, size_t size_print)
 {
 	size_t	number_spaces;
 
@@ -60,7 +60,7 @@ size_t	print_str_with_minus(t_p *p_data, t_c *count, char *print_value)
 	counter = 0;
 	size_c = ft_strlen(print_value);
 	if (p_data->err_precision && !p_data->width)
-		count->length = size_c;
+		count->length += 0;
 	else if (p_data->err_precision)
 		count->length = p_data->width;
 	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
