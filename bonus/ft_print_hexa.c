@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-size_t	print_hexa(va_list args, t_c *count, const char *data)
+size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data)
 {
 	unsigned int	print;
 	char			*converted;
@@ -28,7 +28,10 @@ size_t	print_hexa(va_list args, t_c *count, const char *data)
 		free(converted);
 		return (0);
 	}
-	ft_putstr_fd(converted, count);
+	else if (p_data->flag_minus || p_data->flag_zero || p_data->width)
+		print_specifier(converted, p_data, count);
+	else
+		ft_putstr_fd(converted, count);
 	free(converted);
 	return (1);
 }

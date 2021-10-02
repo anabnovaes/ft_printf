@@ -12,15 +12,6 @@
 
 #include "../ft_printf.h"
 
-void	start_struct(t_p *print_data)
-{
-	print_data->flag_minus = false;
-	print_data->flag_zero = false;
-	print_data->width = 0;
-	print_data->precision = false;
-	print_data->err_precision = false;
-}
-
 void	start_counters(t_c *counters)
 {
 	counters->counter = 0;

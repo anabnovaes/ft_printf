@@ -12,27 +12,45 @@
 
 #include "ft_printf.h"
 
-void	get_type(const char *data, va_list args, t_c *counters)
+void	get_type(const char *data, va_list args, t_p *print, t_c *count)
 {
 	if (*data == 'c')
-		print_char(args, counters);
+		print_char(args, print, count);
 	else if (*data == '%')
-		print_percent(counters);
+		print_percent(print, count);
 	else if (*data == 's')
-		print_string(args, counters);
+		print_string(args, print, count);
 	else if (*data == 'd' || *data == 'i' || *data == 'u')
-		print_int(args, counters, data);
+		print_int(args, print, count, data);
 	else if (*data == 'x' || *data == 'X' )
-		print_hexa(args, counters, data);
+		print_hexa(args, print, count, data);
 	else if (*data == 'p')
-		print_pointer(args, counters);
+		print_pointer(args, print, count);
 	else
-	{
-		print_percent(counters);
-		counters->counter += 1;
-	}
+		count->counter += 1;
 }
 
+void	get_data(const char *data, va_list args, t_c *c)
+{
+	t_p	print_data;
+
+	start_struct(&print_data);
+	while (ft_isflag(data[c->counter]))
+		c->counter += get_flags(data + c->counter, &print_data);
+	while (ft_isdigit(data[c->counter]))
+		c->counter += get_width(data + c->counter, &print_data);
+	if (data[c->counter] == '.')
+		c->counter += get_precision(data + c->counter, &print_data);
+	if (ft_isalpha(data[c->counter]) || data[c->counter] == '%')
+		get_type(data + c->counter, args, &print_data, c);
+	else if (data[c->counter] == ' ' || !data[c->counter])
+		c->counter += 1;
+	else
+	{
+		c->counter += 1;
+		get_data(data, args, c);
+	}
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -46,7 +64,7 @@ int	ft_printf(const char *format, ...)
 		if (format[counters.counter] == '%')
 		{
 			counters.counter++;
-			get_type(&format[counters.counter], args, &counters);
+			get_data(format, args, &counters);
 		}
 		else
 		{
@@ -58,4 +76,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (counters.length);
 }
-

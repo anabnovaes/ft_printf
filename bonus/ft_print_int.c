@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/05 14:30:28 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/12 12:20:03 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 18:30:23 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_string(va_list args, t_c *count)
+size_t	print_int(va_list args, t_p *p_data, t_c *count, const char *type)
 {
-	char	*data_to_print;
+	char	*converted;
 
-	data_to_print = va_arg(args, char *);
-	if (!data_to_print)
-		data_to_print = "(null)";
-	ft_putstr_fd(data_to_print, count);
+	converted = NULL;
+	converted = convert_int(args, type);
+	if (!converted)
+	{
+		free(converted);
+		return (0);
+	}
+	else if (p_data->flag_minus || p_data->flag_zero || p_data->width)
+		print_specifier(converted, p_data, count);
+	else
+		ft_putstr_fd(converted, count);
+	free(converted);
 	return (1);
-}
-
-void	print_char(va_list args, t_c *count)
-{
-	char	data_to_print;
-
-	data_to_print = va_arg(args, int);
-	write(1, &data_to_print, 1);
-	count->length += 1;
-}
-
-void	print_percent(t_c *count)
-{
-		write(1, "%", 1);
-		count->length += 1;
 }

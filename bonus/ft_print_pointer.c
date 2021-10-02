@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 10:31:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 18:28:47 by apaula-b         ###   ########.fr       */
+/*   Created: 2021/09/06 17:53:10 by apaula-b          #+#    #+#             */
+/*   Updated: 2021/09/10 18:31:05 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_hexa(va_list args, t_c *count, const char *data)
+size_t	print_pointer(va_list args, t_p *p_data, t_c *count)
 {
-	unsigned int	print;
+	unsigned long	data_to_print;
 	char			*converted;
 
-	print = 0;
-	converted = NULL;
-	print = va_arg(args, unsigned int);
-	converted = ft_utoa(print);
-	if (*data == 'X')
-		ft_toupper(converted);
+	data_to_print = va_arg(args, unsigned long);
+	if (!data_to_print)
+	{
+		ft_putstr_fd("0x0", count);
+		return (0);
+	}
+	converted = ft_utoa_long(data_to_print);
 	if (!converted)
 	{
 		free(converted);
 		return (0);
 	}
-	ft_putstr_fd(converted, count);
+	else if (p_data->flag_minus || p_data->flag_zero || p_data->width)
+		print_specifier(converted, p_data, count);
+	else
+		ft_putstr_fd(converted, count);
 	free(converted);
 	return (1);
 }

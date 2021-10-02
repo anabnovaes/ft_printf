@@ -21,19 +21,18 @@ SRC = ./src/
 #flags to compile
 FLAGS = -Wall -Wextra -Werror
 
-FILES = ft_print_int.c ft_print_percent.c ft_printf.c ft_print_string.c \
-		ft_print_pointer.c ft_print_hexa.c
+FILES = ft_print_hexa.c ft_print_int.c ft_printf.c ft_print_string.c \
+		ft_print_pointer.c
 
 
 SRC_FILES = ${SRC}ft_atoi.c ${SRC}ft_calloc.c  ${SRC}ft_conversions.c\
-			${SRC}ft_get_flags.c ${SRC}ft_get_types.c ${SRC}ft_itoa.c  \
-			${SRC}ft_putchar.c ${SRC}ft_sizes.c ${SRC}ft_start_functions.c \
-			${SRC}ft_utoa_long.c ${SRC}ft_utoa.c ${SRC}ft_print_specifiers.c \
-			${SRC}ft_print_string_specifiers.c
+			${SRC}ft_itoa.c  ${SRC}ft_putchar.c ${SRC}ft_sizes.c\
+			${SRC}ft_utoa_long.c ${SRC}ft_utoa.c \
+			${SRC}ft_start_functions.c
 
-OBJ = $(FILES:.c=.o) ft_atoi.o ft_calloc.o ft_conversions.o ft_get_flags.o \
-		ft_get_types.o ft_itoa.o ft_putchar.o ft_sizes.o ft_start_functions.o \
-		ft_utoa_long.o ft_utoa.o ft_print_specifiers.o ft_print_string_specifiers.o
+OBJ = $(FILES:.c=.o) ft_atoi.o ft_calloc.o ft_conversions.o  \
+		ft_get_types.o ft_itoa.o ft_putchar.o ft_sizes.o ft_utoa_long.o ft_utoa.o \
+		ft_start_functions.o
 
 
 #1st rule to execute
