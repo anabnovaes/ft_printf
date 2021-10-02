@@ -26,10 +26,7 @@ size_t	print_string(va_list args, t_p *print_data, t_c *count)
 	else if (print_data->width)
 		print_str_with_width(print_data, count, data_to_print);
 	else if (print_data->err_precision && !print_data->width)
-	{
-		count->length += 2;
 		return (1);
-	}
 	else if (print_data->err_precision)
 		return (1);
 	else if (print_data->precision)
