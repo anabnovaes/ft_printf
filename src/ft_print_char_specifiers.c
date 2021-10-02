@@ -29,11 +29,9 @@ size_t	print_char_with_minus(t_p *p_data, t_c *count, char converted)
 {
 	size_t	number_spaces;
 
-	if (p_data->err_precision && !p_data->width)
-		count->length += 0;
-	else if (p_data->err_precision)
+	 if (p_data->err_precision)
 		count->length = p_data->width;
-	 else if (p_data->width > p_data->precision || p_data->precision > 1)
+	 else if (p_data->width > 1)
 	{
 		ft_putstr(converted, count);
 		number_spaces = p_data->width - 1;
