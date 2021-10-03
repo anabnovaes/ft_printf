@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/02 21:50:28 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:03:56 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,4 @@ size_t	print_int(va_list args, t_p *p_data, t_c *count, const char *type)
 	}
 	free(converted);
 	return (1);
-}
-
-int main(void)
-{
-	ft_printf("%.5i", -1234);
 }

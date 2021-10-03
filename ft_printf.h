@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/02 21:39:05 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:48:14 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,11 @@ void 		print_int_specifier(char *converted, t_p *print_data, t_c *count);
 
 size_t	print_int_with_precision(t_p *print_data, t_c *count, char *print_value);
 
-void	print_int_with_minus(t_p *p_data, t_c *count, char *converted);
+void		print_int_with_minus(t_p *p_data, t_c *count, char *converted);
+
+void	print_with_zero(char *p_value, t_c *count,t_p *print_data, size_t size);
+
+void print_upper_width(t_p *p_data, t_c *count, char *print, size_t size);
 
 //---------------------------------conversion_functions-----------------------------------
 

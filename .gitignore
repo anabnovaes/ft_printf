@@ -6,3 +6,5 @@ printfTesterpft_2019/
 a.out.dSYM/
 a.out
 .DS_Store
+*.o
+libftprintf.a
