@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/03 00:10:59 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/03 00:46:56 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ size_t	ft_isdigit(size_t c);
 
 size_t	ft_isflag(size_t str);
 
+size_t	ft_isconversion(t_p *p_data);
+
 size_t	ft_strlen(char *s);
 
 //---------------------------------char_functions-----------------------------------
@@ -90,7 +92,7 @@ size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
 size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print);
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //---------------------------------text_functions(%% )----------------------------------
 
@@ -124,9 +126,11 @@ size_t	print_int_with_precision(t_p *print_data, t_c *count, char *print_value);
 
 void		print_int_with_minus(t_p *p_data, t_c *count, char *converted);
 
-void	print_with_zero(char *p_value, t_c *count,t_p *print_data, size_t size);
+void		print_with_zero(char *p_value, t_c *count,t_p *print_data, size_t size);
 
-void print_upper_width(t_p *p_data, t_c *count, char *print, size_t size);
+void 		print_upper_width(t_p *p_data, t_c *count, char *print, size_t size);
+
+void		print_big_prec(t_p *p_data,size_t size_c, t_c *count, char *converted);
 
 //---------------------------------conversion_functions-----------------------------------
 

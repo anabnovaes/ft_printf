@@ -6,16 +6,33 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 23:46:15 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/02 23:51:03 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/03 00:33:20 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+void	print_big_prec(t_p *p_data,size_t size_c, t_c *count, char *converted)
+{
+	size_t	number_spaces;
+
+	if (p_data->precision > size_c)
+	{
+		number_spaces = p_data->precision - size_c;
+		ft_putzeros(number_spaces, count);
+		ft_putchar_sized(converted, size_c, count);
+	}
+	else if (p_data->precision)
+		ft_putchar_sized(converted, p_data->precision, count);
+	else
+		ft_putstr_fd(converted, count);
+	number_spaces = get_number_spaces(p_data, size_c);
+	ft_putspaces(number_spaces, count);
+}
+
 void	print_int_with_minus(t_p *p_data, t_c *count, char *converted)
 {
 	size_t	size_c;
-	size_t	number_spaces;
 
 	size_c = ft_strlen(converted);
 	if (p_data->err_precision && !p_data->width)
@@ -23,15 +40,12 @@ void	print_int_with_minus(t_p *p_data, t_c *count, char *converted)
 	else if (p_data->err_precision)
 		count->length = p_data->width;
 	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
+	 	print_big_prec(p_data, size_c, count, converted);
+	else if (p_data->precision == size_c && *converted == '-')
 	{
-		if (p_data->precision > size_c)
-			ft_putchar_sized(converted, size_c, count);
-		else if (p_data->precision)
-			ft_putchar_sized(converted, p_data->precision, count);
-		else
-			ft_putstr_fd(converted, count);
-		number_spaces = get_number_spaces(p_data, size_c);
-		ft_putspaces(number_spaces, count);
+		ft_putchar_sized(&converted[0], 1, count);
+		ft_putzeros(p_data->precision - size_c + 1, count);
+		ft_putchar_sized(&converted[1], size_c - 1, count);
 	}
 	else
 		ft_putstr_fd(converted, count);
