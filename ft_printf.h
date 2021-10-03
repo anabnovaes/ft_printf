@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/12 00:26:12 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/02 21:39:05 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_params
 	size_t	width;
 	size_t	precision;
 	bool	err_precision;
+	bool	negative_value;
 }		t_p;
 
 typedef struct s_counters
@@ -34,11 +35,6 @@ typedef struct s_counters
 	int		length;
 }		t_c;
 
-//---------------------------------initialization-----------------------------------
-
-int			ft_printf(const char *format, ...);
-
-void		get_data(const char *data, va_list args, t_c *count);
 
 //---------------------------------start_structs-----------------------------------
 
@@ -78,11 +74,11 @@ size_t	print_char_with_minus(t_p *p_data, t_c *count, char converted);
 
 void 		ft_putstr(char string, t_c *count);
 
-void		print_null(t_c *count);
+void		print_char_with_width(t_p *print_data, t_c *count, char converted);
 
-void		ft_putstr_fd(char *s, t_c *count);
+size_t	print_char_with_minus(t_p *p_data, t_c *count, char converted);
 
-//---------------------------------text_functions(%% | %s)-----------------------------
+//---------------------------------text_functions(%s)-----------------------------
 
 size_t	print_string(va_list args, t_p *print_data, t_c *count);
 
@@ -94,19 +90,15 @@ size_t	print_str_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
 size_t	print_str_with_precision(t_p *p_data, t_c *count, char *value_to_print);
 
-void		ft_putchar_sized(char *s, size_t size, t_c *count);
-
-void		ft_putspaces(size_t value, t_c *count);
+//---------------------------------text_functions(%% )----------------------------------
 
 void		print_specifier(char *converted, t_p *print_data, t_c *count);
 
-//---------------------------------char_functions-------------------------------------
+size_t	print_with_minus(t_p *print_data, t_c *count, char *value_to_print);
 
-void		ft_putchar_fd(char c, int fd);
+void		print_with_width(t_p *print_data, t_c *count, char *converted);
 
-void		print_char_with_width(t_p *print_data, t_c *count, char converted);
-
-size_t	print_char_with_minus(t_p *p_data, t_c *count, char converted);
+void		print_with_flag_zero(t_p *print_data, t_c *count, char *converted);
 
 //--------------------------------hexa_functions-------------------------------------
 
@@ -114,38 +106,54 @@ size_t	print_hexa(va_list args, t_p *p_data, t_c *count, const char *data);
 
 //---------------------------------integer_functions-----------------------------------
 
-int			get_size_int(long int value);
-
 size_t	print_int(va_list args, t_p *print_data, t_c *count, const char *type);
-
-char		*convert_int(va_list args, const char *type);
-
-//---------------------------------conversion_functions-----------------------------------
-
-int		ft_atoi(const char *str);
-
-void	ft_bzero(void *s, size_t n);
-
-void	*ft_calloc(size_t count, size_t size);
-
-char	*ft_itoa(int n);
-
-char	*ft_itoa_unsigned(unsigned int n);
-
-char	*ft_utoa(unsigned int integer);
-
-char	*ft_utoa_long(unsigned long integer);
-
-char	*ft_toupper(char *c);
-
-//---------------------------------global_functions-----------------------------------
 
 size_t	print_pointer(va_list args, t_p *p_data, t_c *count);
 
-size_t	print_with_minus(t_p *print_data, t_c *count, char *value_to_print);
+int			get_size_int(long int value);
 
-void	print_with_width(t_p *print_data, t_c *count, char *converted);
+char		*convert_int(va_list args, const char *type, t_p *print_value);
 
-void	print_with_flag_zero(t_p *print_data, t_c *count, char *converted);
+void		print_int_with_width(t_p *print_data, t_c *count, char *converted);
+
+void 		print_int_specifier(char *converted, t_p *print_data, t_c *count);
+
+size_t	print_int_with_precision(t_p *print_data, t_c *count, char *print_value);
+
+void	print_int_with_minus(t_p *p_data, t_c *count, char *converted);
+
+//---------------------------------conversion_functions-----------------------------------
+
+int			ft_atoi(const char *str);
+
+void		ft_bzero(void *s, size_t n);
+
+void		*ft_calloc(size_t count, size_t size);
+
+char		*ft_itoa(int n);
+
+char		*ft_itoa_unsigned(unsigned int n);
+
+char		*ft_utoa(unsigned int integer);
+
+char		*ft_utoa_long(unsigned long integer);
+
+char		*ft_toupper(char *c);
+
+//---------------------------------global_functions-----------------------------------
+
+int			ft_printf(const char *format, ...);
+
+void		get_data(const char *data, va_list args, t_c *count);
+
+void		print_null(t_c *count);
+
+void		ft_putstr_fd(char *s, t_c *count);
+
+void		ft_putzeros(size_t value, t_c *count);
+
+void		ft_putchar_sized(char *s, size_t size, t_c *count);
+
+void		ft_putspaces(size_t value, t_c *count);
 
 #endif

@@ -6,16 +6,11 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 21:47:09 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/02 20:26:49 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
 
 void	ft_putstr_fd(char *s, t_c *count)
 {
@@ -63,3 +58,17 @@ void ft_putstr(char string, t_c *count)
 	write(1, &string, 1);
 	count->length += 1;
 }
+
+void	ft_putzeros(size_t value, t_c *count)
+{
+	size_t	counter;
+
+	counter = 0;
+	while (value > counter)
+	{
+		write(1, "0", 1);
+		counter++;
+	}
+	count->length += counter;
+}
+

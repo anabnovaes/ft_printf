@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_specifiers.c                              :+:      :+:    :+:   */
+/*   ft_print_percent_specifiers.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:44:45 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/11 23:16:55 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/02 17:55:52 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <stdio.h>
 
 size_t	print_with_minus(t_p *print_data, t_c *count, char *value_to_print)
 {
