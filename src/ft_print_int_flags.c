@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 23:46:15 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/03 00:33:20 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/03 16:27:34 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@ void	print_big_prec(t_p *p_data,size_t size_c, t_c *count, char *converted)
 {
 	size_t	number_spaces;
 
-	if (p_data->precision > size_c)
+	if(p_data->precision > size_c && p_data->width > p_data->precision)
+	{
+		number_spaces = p_data->precision - size_c;
+		ft_putzeros(number_spaces, count);
+		ft_putchar_sized(converted, size_c, count);
+		ft_putspaces(p_data->width - p_data->precision, count);
+	}
+	else if (p_data->precision > size_c)
 	{
 		number_spaces = p_data->precision - size_c;
 		ft_putzeros(number_spaces, count);
@@ -25,9 +32,11 @@ void	print_big_prec(t_p *p_data,size_t size_c, t_c *count, char *converted)
 	else if (p_data->precision)
 		ft_putchar_sized(converted, p_data->precision, count);
 	else
+	{
 		ft_putstr_fd(converted, count);
-	number_spaces = get_number_spaces(p_data, size_c);
-	ft_putspaces(number_spaces, count);
+		number_spaces = get_number_spaces(p_data, size_c);
+		ft_putspaces(number_spaces, count);
+	}
 }
 
 void	print_int_with_minus(t_p *p_data, t_c *count, char *converted)
@@ -35,13 +44,11 @@ void	print_int_with_minus(t_p *p_data, t_c *count, char *converted)
 	size_t	size_c;
 
 	size_c = ft_strlen(converted);
-	if (p_data->err_precision && !p_data->width)
-		count->length += 0;
-	else if (p_data->err_precision)
-		count->length = p_data->width;
+	if (p_data->err_precision)
+		print_err_precision(p_data, count, converted);
 	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
 	 	print_big_prec(p_data, size_c, count, converted);
-	else if (p_data->precision == size_c && *converted == '-')
+	else if (p_data->precision == size_c && *converted == )
 	{
 		ft_putchar_sized(&converted[0], 1, count);
 		ft_putzeros(p_data->precision - size_c + 1, count);

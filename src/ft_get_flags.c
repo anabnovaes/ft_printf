@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 13:43:17 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/12 12:19:35 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/03 20:29:40 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	get_flags(const char *data, t_p *print_data)
 	return (c_positions);
 }
 
-int	get_width(const char *data, t_p *print_data)
+size_t	get_width(const char *data, t_p *print_data)
 {
 	int		size_int;
 
