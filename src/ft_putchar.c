@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:30:47 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/02 20:26:49 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/04 09:06:50 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_putspaces(size_t value, t_c *count)
 	count->length += counter;
 }
 
-void ft_putstr(char string, t_c *count)
+void	ft_putstr(char string, t_c *count)
 {
 	write(1, &string, 1);
 	count->length += 1;
@@ -71,4 +71,3 @@ void	ft_putzeros(size_t value, t_c *count)
 	}
 	count->length += counter;
 }
-

@@ -6,17 +6,17 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 23:46:15 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/03 16:27:34 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/04 09:11:10 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	print_big_prec(t_p *p_data,size_t size_c, t_c *count, char *converted)
+void	p_big_prec(t_p *p_data, size_t size_c, t_c *count, char *converted)
 {
 	size_t	number_spaces;
 
-	if(p_data->precision > size_c && p_data->width > p_data->precision)
+	if (p_data->precision > size_c && p_data->width > p_data->precision)
 	{
 		number_spaces = p_data->precision - size_c;
 		ft_putzeros(number_spaces, count);
@@ -46,9 +46,9 @@ void	print_int_with_minus(t_p *p_data, t_c *count, char *converted)
 	size_c = ft_strlen(converted);
 	if (p_data->err_precision)
 		print_err_precision(p_data, count, converted);
-	 else if (p_data->width > p_data->precision || p_data->precision > size_c)
-	 	print_big_prec(p_data, size_c, count, converted);
-	else if (p_data->precision == size_c && *converted == )
+	else if (p_data->width > p_data->precision || p_data->precision > size_c)
+		p_big_prec(p_data, size_c, count, converted);
+	else if (p_data->precision == size_c && *converted == '-')
 	{
 		ft_putchar_sized(&converted[0], 1, count);
 		ft_putzeros(p_data->precision - size_c + 1, count);
@@ -80,34 +80,34 @@ void	print_int_with_width(t_p *print_data, t_c *count, char *converted)
 	count->length += counter;
 }
 
-void	print_with_zero(char *p_value, t_c *count,t_p *print_data, size_t size)
+void	print_with_zero(char *print, t_c *count, t_p *p_data, size_t size)
 {
-	if (p_value[0] == '-')
+	if (print[0] == '-')
 	{
-		ft_putchar_sized(&p_value[0], 1, count);
-		ft_putzeros(print_data->precision - size + 1, count);
-		ft_putchar_sized(&p_value[1], size - 1, count);
+		ft_putchar_sized(&print[0], 1, count);
+		ft_putzeros(p_data->precision - size + 1, count);
+		ft_putchar_sized(&print[1], size - 1, count);
 	}
 	else
 	{
-		ft_putzeros(print_data->precision - size, count);
-		ft_putchar_sized(p_value, size, count);
+		ft_putzeros(p_data->precision - size, count);
+		ft_putchar_sized(print, size, count);
 	}
 }
 
-size_t	print_int_with_precision(t_p *print_data, t_c *count, char *print_value)
+size_t	print_int_with_prec(t_p *p_data, t_c *count, char *print_value)
 {
 	size_t	size_print;
 
 	size_print = ft_strlen(print_value);
-	if (print_data->width > print_data->precision)
-		print_upper_width(print_data,count, print_value, size_print);
-	else if (print_data->precision > size_print)
-		print_with_zero(print_value, count,print_data, size_print);
-	else if (print_data->precision == size_print && *print_value == '-')
+	if (p_data->width > p_data->precision)
+		print_up_width(p_data, count, print_value, size_print);
+	else if (p_data->precision > size_print)
+		print_with_zero(print_value, count, p_data, size_print);
+	else if (p_data->precision == size_print && *print_value == '-')
 	{
 		ft_putchar_sized(&print_value[0], 1, count);
-		ft_putzeros(print_data->precision - size_print + 1, count);
+		ft_putzeros(p_data->precision - size_print + 1, count);
 		ft_putchar_sized(&print_value[1], size_print - 1, count);
 	}
 	else
