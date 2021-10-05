@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:18:13 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/05 18:38:16 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:23:09 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,6 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-typedef struct s_params
-{
-	bool	flag_minus;
-	bool	flag_zero;
-	size_t	width;
-	size_t	precision;
-	bool	err_precision;
-	bool	negative_value;
-}		t_p;
-
 typedef struct s_counters
 {
 	int		counter;
@@ -39,17 +29,7 @@ typedef struct s_counters
 
 void		start_counters(t_c *counters);
 
-void		start_struct(t_p *print_data);
-
 //---------------------------------collect_info-------------------------------
-
-size_t		get_flags_and_precision(char *data, va_list args, t_p *print_data);
-
-size_t		get_precision(const char *data, t_p *print_data);
-
-size_t		get_flags(const char *data, t_p *print_data);
-
-size_t		get_width(const char *data, t_p *print_data);
 
 void		get_type(const char *data, va_list args, t_c *count);
 
@@ -60,8 +40,6 @@ size_t		ft_isalpha(size_t c);
 size_t		ft_isdigit(size_t c);
 
 size_t		ft_isflag(size_t str);
-
-size_t		ft_isconversion(t_p *p_data);
 
 size_t		ft_strlen(char *s);
 

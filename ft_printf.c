@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:17:12 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/05 18:21:18 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:22:30 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,6 @@ void	get_type(const char *data, va_list args, t_c *count)
 
 void	get_data(const char *data, va_list args, t_c *c)
 {
-	t_p	print_data;
-
-	start_struct(&print_data);
-	while (ft_isflag(data[c->counter]))
-		c->counter += get_flags(data + c->counter, &print_data);
-	while (ft_isdigit(data[c->counter]))
-		c->counter += get_width(data + c->counter, &print_data);
-	if (data[c->counter] == '.')
-		c->counter += get_precision(data + c->counter, &print_data);
 	if (ft_isalpha(data[c->counter]) || data[c->counter] == '%')
 		get_type(data + c->counter, args, c);
 	else if (data[c->counter] == ' ' || !data[c->counter])
