@@ -6,7 +6,7 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 22:31:23 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/03 00:46:40 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:23:13 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,4 @@ size_t	ft_isdigit(size_t c)
 size_t	ft_isflag(size_t str)
 {
 	return (str == '-' || str == '0');
-}
-
-size_t	ft_isconversion(t_p *p_data)
-{
-	return (p_data->precision || p_data->width);
 }

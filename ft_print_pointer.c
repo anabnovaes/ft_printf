@@ -6,13 +6,13 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 17:53:10 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/09/10 18:31:05 by apaula-b         ###   ########.fr       */
+/*   Updated: 2021/10/05 18:20:14 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_pointer(va_list args, t_p *p_data, t_c *count)
+size_t	print_pointer(va_list args, t_c *count)
 {
 	unsigned long	data_to_print;
 	char			*converted;
@@ -29,8 +29,6 @@ size_t	print_pointer(va_list args, t_p *p_data, t_c *count)
 		free(converted);
 		return (0);
 	}
-	else if (p_data->flag_minus || p_data->flag_zero || p_data->width)
-		print_specifier(converted, p_data, count);
 	else
 		ft_putstr_fd(converted, count);
 	free(converted);
