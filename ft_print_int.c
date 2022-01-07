@@ -6,13 +6,15 @@
 /*   By: apaula-b <apaula-b@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:46:36 by apaula-b          #+#    #+#             */
-/*   Updated: 2021/10/05 19:11:07 by apaula-b         ###   ########.fr       */
+/*   Updated: 2022/01/07 20:49:46 by apaula-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_int(va_list args, t_c *count, const char *type)
+#include <stdio.h>
+
+size_t	print_int(va_list args, t_p *p_data, t_c *count, const char *type)
 {
 	char	*converted;
 
